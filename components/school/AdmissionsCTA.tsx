@@ -5,8 +5,8 @@ import EnquiryTrigger from "./enquiry/EnquiryTrigger";
 const admissionSteps = [
   {
     num: "01",
-    title: "Online Enquiry",
-    desc: "Register online or contact our admissions counsellor for details.",
+    title: "Online Application",
+    desc: "Submit your digital admission enquiry form with undergraduate degree details.",
     icon: (
       <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.2" strokeLinecap="round" strokeLinejoin="round" aria-hidden="true">
         <path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z" />
@@ -18,30 +18,19 @@ const admissionSteps = [
   },
   {
     num: "02",
-    title: "Campus Tour",
-    desc: "Walk through classrooms, labs, sports grounds & meet educators.",
+    title: "Document Screening",
+    desc: "Upload graduation transcripts, 10th/12th mark sheets, and entrance test scores.",
     icon: (
       <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.2" strokeLinecap="round" strokeLinejoin="round" aria-hidden="true">
-        <circle cx="12" cy="10" r="3" />
-        <path d="M12 21.7C17.3 17 20 13 20 10a8 8 0 1 0-16 0c0 3 2.7 7 8 11.7z" />
+        <rect x="8" y="2" width="8" height="4" rx="1" ry="1" />
+        <path d="M16 4h2a2 2 0 0 1 2 2v14a2 2 0 0 1-2 2H6a2 2 0 0 1-2-2V6a2 2 0 0 1 2-2h2" />
       </svg>
     ),
   },
   {
     num: "03",
-    title: "Application Form",
-    desc: "Submit enrollment details along with student identity & academic records.",
-    icon: (
-      <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.2" strokeLinecap="round" strokeLinejoin="round" aria-hidden="true">
-        <path d="M16 4h2a2 2 0 0 1 2 2v14a2 2 0 0 1-2 2H6a2 2 0 0 1-2-2V6a2 2 0 0 1 2-2h2" />
-        <rect x="8" y="2" width="8" height="4" rx="1" ry="1" />
-      </svg>
-    ),
-  },
-  {
-    num: "04",
-    title: "Friendly Interaction",
-    desc: "Warm informal student connect assessing age readiness with zero stress.",
+    title: "Career Counseling",
+    desc: "Interactive session with senior faculty mentors to align career goals with the right specialization.",
     icon: (
       <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.2" strokeLinecap="round" strokeLinejoin="round" aria-hidden="true">
         <path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2" />
@@ -52,9 +41,9 @@ const admissionSteps = [
     ),
   },
   {
-    num: "05",
-    title: "Seat Confirmation",
-    desc: "Formal admission, welcome orientation kit and academic onboarding.",
+    num: "04",
+    title: "Provisional Admission Offer",
+    desc: "Receive formal admission letter and complete course registration and fee formalities.",
     icon: (
       <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.2" strokeLinecap="round" strokeLinejoin="round" aria-hidden="true">
         <path d="M22 11.08V12a10 10 0 1 1-5.93-9.14" />
@@ -62,13 +51,25 @@ const admissionSteps = [
       </svg>
     ),
   },
+  {
+    num: "05",
+    title: "Orientation & Laptop Distribution",
+    desc: "Join the academic induction program, receive complimentary laptop, and begin MBA coursework.",
+    icon: (
+      <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.2" strokeLinecap="round" strokeLinejoin="round" aria-hidden="true">
+        <rect x="2" y="3" width="20" height="14" rx="2" />
+        <line x1="8" y1="21" x2="16" y2="21" />
+        <line x1="12" y1="17" x2="12" y2="21" />
+      </svg>
+    ),
+  },
 ];
 
 const admissionHighlights = [
-  { label: "Grade Levels", value: "Pre-KG to Class 10" },
-  { label: "Affiliation", value: "CBSE New Delhi" },
-  { label: "Campus Ratio", value: "Optimal 1:15" },
-  { label: "Academic Year", value: "2027–2028" },
+  { label: "Degree Program", value: "MBA (2 Years Full-Time)" },
+  { label: "Approvals", value: "AICTE & Bengaluru City Univ." },
+  { label: "Placement", value: "100% Support (₹12.36 LPA)" },
+  { label: "Academic Batch", value: "Admissions 2026–2028" },
 ];
 
 export default function AdmissionsCTA() {
@@ -79,17 +80,17 @@ export default function AdmissionsCTA() {
         <div className="admissions-content">
           <div className="admissions-badge">
             <span className="badge-pulse-dot"></span>
-            <span>ACADEMIC YEAR 2027–28 ADMISSIONS</span>
+            <span>ACADEMIC BATCH 2026–28 ADMISSIONS OPEN</span>
           </div>
 
           <h2 id="admissions-title">
-            <span className="lead-line">Give Your Child A Future Of</span>
-            <span className="focus-line">Purpose &amp; Distinction.</span>
+            <span className="lead-line">Launch Your Global Career With</span>
+            <span className="focus-line">Bangalore's Leading MBA.</span>
           </h2>
 
           <p className="admissions-summary">
-            Join Karnataka Public School — where deep academic rigor meets values, character,
-            and future-ready capability. Limited seats available across Pre-KG through Class 10.
+            Join Karnataka College of Management (KCM) — an exclusive MBA ecosystem with 100% placement support,
+            PhD mentors, SAP &amp; Python certifications, and international study tours to Singapore &amp; Dubai.
           </p>
 
           <div className="admissions-stats-grid">
@@ -103,19 +104,19 @@ export default function AdmissionsCTA() {
 
           <div className="admissions-actions">
             <EnquiryTrigger className="admissions-primary">
-              APPLY / ENQUIRE NOW
+              APPLY ONLINE FOR 2026
             </EnquiryTrigger>
-            <a className="admissions-secondary" href="tel:+919071887788">
+            <a className="admissions-secondary" href="tel:+919606994048">
               <svg width="17" height="17" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.2" strokeLinecap="round" strokeLinejoin="round" aria-hidden="true">
                 <path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72 12.84 12.84 0 0 0 .7 2.81 2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45 12.84 12.84 0 0 0 2.81.7A2 2 0 0 1 22 16.92z" />
               </svg>
-              <span>CALL COUNSELLOR: 90718 87788</span>
+              <span>CALL COUNSELOR: +91 96069 94048</span>
             </a>
           </div>
 
           <div className="admissions-trust-pill">
             <span className="trust-check">✓</span>
-            <span>Transparent Fee Structure &bull; Zero Capitation Fees &bull; CBSE Affiliated #830385</span>
+            <span>AICTE Approved &bull; Bengaluru City University &bull; Free Laptop &bull; 100% Placement Support</span>
           </div>
         </div>
 
@@ -123,7 +124,7 @@ export default function AdmissionsCTA() {
         <div className="admissions-journey-card">
           <div className="journey-card-header">
             <div>
-              <span className="journey-sub">SEAMLESS ONBOARDING</span>
+              <span className="journey-sub">FAST-TRACK ENROLLMENT</span>
               <h3 className="journey-card-title">5-Step Admission Pathway</h3>
             </div>
             <span className="journey-status-tag">OPEN</span>
@@ -149,7 +150,7 @@ export default function AdmissionsCTA() {
             <span className="contact-strip-label">Direct Admissions Help:</span>
             <div className="contact-buttons-cluster">
               <a
-                href="https://wa.me/919071887788"
+                href="https://wa.me/919606994048"
                 target="_blank"
                 rel="noopener noreferrer"
                 className="channel-btn btn-wa"
@@ -157,17 +158,17 @@ export default function AdmissionsCTA() {
                 <span>WhatsApp Desk</span>
               </a>
               <a
-                href="tel:+919071887788"
+                href="tel:+919606994048"
                 className="channel-btn btn-call"
               >
-                <span>+91 90718 87788</span>
+                <span>+91 96069 94048</span>
               </a>
               <a
-                href="tel:+918310663628"
+                href="tel:+917349635914"
                 className="channel-btn btn-call"
                 title="Alternative Helpline"
               >
-                <span>+91 83106 63628</span>
+                <span>+91 73496 35914</span>
               </a>
             </div>
           </div>

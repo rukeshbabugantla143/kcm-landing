@@ -290,7 +290,7 @@ export default function Customizer() {
           </div>
           <div>
             <strong>Live brand preview</strong>
-            <p>Classic keeps the approved school identity unchanged.</p>
+            <p>Classic keeps the approved college identity unchanged.</p>
           </div>
         </div>
 

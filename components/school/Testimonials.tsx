@@ -4,7 +4,7 @@ import { useState, useMemo } from "react";
 
 type TestimonialItem = {
   id: string;
-  category: "parents" | "students" | "alumni";
+  category: "students" | "alumni" | "recruiters";
   categoryLabel: string;
   name: string;
   role: string;
@@ -16,84 +16,84 @@ type TestimonialItem = {
 
 const allTestimonials: TestimonialItem[] = [
   {
-    id: "parent-1",
-    category: "parents",
-    categoryLabel: "Parent Reflection",
-    name: "Priya & Rohit Mehra",
-    role: "Parents of Siddharth",
-    gradeBadge: "Class 6",
-    quote:
-      "The school brings academic structure and genuine warmth together. We see our child becoming more curious, articulate and responsible every month.",
-    metric: "Holistic Growth",
-    rating: 5,
-  },
-  {
-    id: "student-1",
-    category: "students",
-    categoryLabel: "Student Voice",
-    name: "Aarav Sharma",
-    role: "Student President",
-    gradeBadge: "Class 10",
-    quote:
-      "Teachers help us think far beyond textbooks. Hands-on science labs, robotics club, and sports practice keep learning active while giving us complete confidence for Board exams.",
-    metric: "Board Readiness",
-    rating: 5,
-  },
-  {
     id: "alumni-1",
     category: "alumni",
-    categoryLabel: "Alumni Pathway",
-    name: "Ananya Iyer",
-    role: "Alumna, Class of 2023",
-    gradeBadge: "Class 10 (96.4%)",
+    categoryLabel: "Alumni Reflection",
+    name: "Rahul Sharma",
+    role: "Senior Business Analyst, Leading MNC",
+    gradeBadge: "MBA Class of 2022",
     quote:
-      "Karnataka Public School gave me the discipline, study habits, and strong foundation in mathematics and sciences that made higher secondary learning seamless.",
-    metric: "Academic Foundation",
-    rating: 5,
-  },
-  {
-    id: "parent-2",
-    category: "parents",
-    categoryLabel: "Parent Reflection",
-    name: "Dr. Sandeep & Shalini Kulkarni",
-    role: "Parents of Diya",
-    gradeBadge: "Class 3 (Primary)",
-    quote:
-      "Choosing KPSC for our daughter was the best decision. The faculty are exceptionally caring, attentive to every child, and nurture natural curiosity without stress.",
-    metric: "Nurturing Environment",
-    rating: 5,
-  },
-  {
-    id: "student-2",
-    category: "students",
-    categoryLabel: "Student Voice",
-    name: "Meera Nair",
-    role: "Debate & Arts Prefect",
-    gradeBadge: "Class 8",
-    quote:
-      "The debate society, computer labs, and annual cultural showcase make every school term memorable. Our teachers always encourage us to ask deep questions.",
-    metric: "Confidence & Expression",
+      "KCM provided me with the perfect blend of academic rigor and practical exposure. The placements here are outstanding and the faculty mentorship is truly life-changing!",
+    metric: "Campus Placed",
     rating: 5,
   },
   {
     id: "alumni-2",
     category: "alumni",
-    categoryLabel: "Alumni Pathway",
-    name: "Vikramaditya Rao",
-    role: "State-level Athlete & Scholar",
-    gradeBadge: "Class of 2022",
+    categoryLabel: "Alumni Reflection",
+    name: "Sneha Patil",
+    role: "Financial Analyst, FinTech Corp",
+    gradeBadge: "MBA Class of 2023",
     quote:
-      "The sports coaches and academic mentors worked together to help me excel in athletics while never compromising my Board syllabus scores. Truly a balanced school.",
-    metric: "Sports & Academics",
+      "The leadership training at KCM is top-notch. I secured a campus placement in a premier financial firm right after graduation thanks to the dedicated career development cell.",
+    metric: "Corporate Placement",
+    rating: 5,
+  },
+  {
+    id: "student-1",
+    category: "students",
+    categoryLabel: "Scholar Voice",
+    name: "Vikram Singh",
+    role: "MBA Scholar & E-Cell Lead",
+    gradeBadge: "MBA Batch 2024-26",
+    quote:
+      "The vibrant campus life, international study tour to Singapore, and continuous CXO interactions make KCM the best choice for aspiring managers in Bangalore.",
+    metric: "Global Exposure",
+    rating: 5,
+  },
+  {
+    id: "alumni-3",
+    category: "alumni",
+    categoryLabel: "Alumni Pathway",
+    name: "Ananya Das",
+    role: "Brand Marketing Lead",
+    gradeBadge: "MBA Class of 2021",
+    quote:
+      "From live FMCG case studies to hands-on brand marketing projects in the digital studio, KCM gave me the conviction to step straight into a managerial role.",
+    metric: "Fast-Track Career",
+    rating: 5,
+  },
+  {
+    id: "student-2",
+    category: "students",
+    categoryLabel: "Analytics Scholar",
+    name: "Karthik Reddy",
+    role: "MBA in Business Analytics",
+    gradeBadge: "Batch 2024-26",
+    quote:
+      "The high-performance computing labs, hands-on Python and Power BI curriculum, and real-time business problem sets set KCM apart from traditional colleges.",
+    metric: "AI & Analytics",
+    rating: 5,
+  },
+  {
+    id: "recruiter-1",
+    category: "recruiters",
+    categoryLabel: "Corporate Partner",
+    name: "Senior Talent Acquisition Head",
+    role: "Global Technology & Consulting MNC",
+    gradeBadge: "Recruiter Feedback",
+    quote:
+      "KCM MBA graduates demonstrate exceptional corporate discipline, quantitative rigor, and articulate communication. They are consistently day-one corporate ready.",
+    metric: "Day-One Corporate Ready",
     rating: 5,
   },
 ];
 
 const categoryTabs = [
   { id: "all", label: "All Voices" },
-  { id: "parents", label: "Parents" },
-  { id: "students", label: "Students" },
   { id: "alumni", label: "Alumni" },
+  { id: "students", label: "Scholars" },
+  { id: "recruiters", label: "Recruiters" },
 ] as const;
 
 export default function Testimonials() {
@@ -112,12 +112,12 @@ export default function Testimonials() {
           <div className="testimonials-kicker-wrap">
             <span className="testimonials-pill-tag">
               <span className="pill-star">★</span>
-              <span>COMMUNITY VOICES &amp; REFLECTIONS</span>
+              <span>COMMUNITY REFLECTIONS &amp; SUCCESS</span>
             </span>
-            <h2 id="testimonials-title">Trusted by Bengaluru Families. Cherished by Students.</h2>
+            <h2 id="testimonials-title">Voices of KCM Bangalore: Alumni &amp; Scholars.</h2>
             <p className="testimonials-intro">
-              Authentic reflections from our vibrant community of parents, high-achieving students,
-              and alumni celebrating academic rigor and character from Pre-KG to Class 10.
+              Hear from our students and alumni who are making waves in the corporate world, leading
+              enterprises across Marketing, Finance, HR, and Analytics.
             </p>
           </div>
 
@@ -188,23 +188,23 @@ export default function Testimonials() {
         {/* Bottom Trust Indicators */}
         <div className="testimonials-trust-ribbon">
           <div className="trust-ribbon-item">
-            <span className="trust-number">4.9 / 5.0</span>
-            <span className="trust-text">Parent Satisfaction Score</span>
+            <span className="trust-number">100%</span>
+            <span className="trust-text">Placement Assistance Record</span>
           </div>
           <div className="ribbon-sep" aria-hidden="true"></div>
           <div className="trust-ribbon-item">
-            <span className="trust-number">100%</span>
-            <span className="trust-text">Class 10 CBSE Board Pass Rate</span>
+            <span className="trust-number">₹12.36 LPA</span>
+            <span className="trust-text">Highest Salary Package</span>
           </div>
           <div className="ribbon-sep" aria-hidden="true"></div>
           <div className="trust-ribbon-item">
             <span className="trust-number">15+ Years</span>
-            <span className="trust-text">Excellence in Bengaluru</span>
+            <span className="trust-text">Karnataka Education Trust Legacy</span>
           </div>
           <div className="ribbon-sep" aria-hidden="true"></div>
           <div className="trust-ribbon-item">
-            <span className="trust-number">1:15</span>
-            <span className="trust-text">Teacher-to-Student Mentorship</span>
+            <span className="trust-number">150+</span>
+            <span className="trust-text">Corporate Recruiting Partners</span>
           </div>
         </div>
       </div>

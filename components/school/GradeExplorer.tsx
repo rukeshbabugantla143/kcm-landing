@@ -3,7 +3,7 @@
 import { useState } from "react";
 import { useEnquiry } from "./enquiry/EnquiryContext";
 
-type StageKey = "pre-primary" | "primary" | "middle" | "secondary";
+type StageKey = "marketing" | "finance" | "hr" | "analytics";
 
 interface StageData {
   key: StageKey;
@@ -13,126 +13,126 @@ interface StageData {
   age: string;
   title: string;
   description: string;
-  imagePosition: string;
+  imageSrc: string;
+  curriculumFocus: string;
   highlights: {
     title: string;
     desc: string;
   }[];
-  curriculumFocus: string;
 }
 
 const STAGES: Record<StageKey, StageData> = {
-  "pre-primary": {
-    key: "pre-primary",
-    label: "Pre-Primary",
-    sublabel: "Pre-KG, LKG & UKG",
-    badge: "FOUNDATIONAL STAGE (NEP 2020)",
-    age: "Age 3 – 6 Years | Nursery to UKG",
-    title: "Joyful Foundations Through Play & Wonder",
+  marketing: {
+    key: "marketing",
+    label: "Marketing",
+    sublabel: "MBA in Marketing Management",
+    badge: "AICTE APPROVED • 2 YEARS FULL TIME",
+    age: "Postgraduate Degree | 4 Semesters",
+    title: "Strategic Branding, Consumer Insights & Digital Strategy",
     description:
-      "Gentle daily routines, language-rich classrooms, and tactile sensory activities help young children develop expressive confidence, foundational motor skills, and a natural excitement for school.",
-    imagePosition: "0% 50%",
-    curriculumFocus: "Play-based Montessori & Early Phonics",
+      "The MBA in Marketing at KCM focuses on modern market positioning, digital transformation, and brand leadership. Students master the dynamic consumer landscape through live campaigns, CXO interactions, and creative execution.",
+    imageSrc: "/assets/kcm/Interactive_Smart_Classroom.jpeg",
+    curriculumFocus: "Digital Branding, Social Media & Omnichannel Sales",
     highlights: [
       {
-        title: "Phonics & Early Numeracy",
-        desc: "Interactive storytelling, alphabet phonics, and concrete number sense through play materials.",
+        title: "Digital Marketing Studio",
+        desc: "Hands-on training in search engine optimization, performance advertising, and content growth strategies.",
       },
       {
-        title: "Art, Music & Motor Skills",
-        desc: "Color exploration, rhythmic movement, sand play, and gross-motor obstacle courses.",
+        title: "Consumer Behavior & Market Research",
+        desc: "Research space and Harvard/IIM case studies for analyzing emerging trends and consumer psychology.",
       },
       {
-        title: "Warm Transition Care",
-        desc: "Child-safe classrooms, patient mentor support, and structured routines for effortless emotional settling.",
+        title: "Strategic Brand Management",
+        desc: "Product lifecycle planning, omnichannel distribution, and global brand positioning.",
       },
     ],
   },
-  primary: {
-    key: "primary",
-    label: "Primary School",
-    sublabel: "Class 1 to Class 5",
-    badge: "PREPARATORY STAGE",
-    age: "Class 1 – 5 | Ages 6 – 10 Years",
-    title: "Curious Minds & Confident Foundations",
+  finance: {
+    key: "finance",
+    label: "Finance",
+    sublabel: "MBA in Finance Management",
+    badge: "AICTE APPROVED • 2 YEARS FULL TIME",
+    age: "Postgraduate Degree | 4 Semesters",
+    title: "Investment Banking, FinTech & Corporate Valuation",
     description:
-      "Children transition from guided play into structured concept mastery. Reading fluency, mathematical inquiry, and experiential projects build strong study habits while keeping every school day joyful.",
-    imagePosition: "25% 50%",
-    curriculumFocus: "Core CBSE Concepts & Experiential STEM",
+      "Designed for students aiming to master global capital markets, investment banking, and corporate financial health. Students receive intensive hands-on training on financial modeling, risk analysis, and corporate restructuring.",
+    imageSrc: "/assets/kcm/Fully_Automated_Central_Library.jpeg",
+    curriculumFocus: "Financial Modeling, Equity Research & FinTech",
     highlights: [
       {
-        title: "Conceptual Literacy & Math",
-        desc: "Reading fluency, bilingual expression, and visual mathematical problem solving.",
+        title: "FinTech & Investment Hub",
+        desc: "Real-time market simulations, portfolio management workshops, and advanced financial modeling.",
       },
       {
-        title: "Activity-Based Projects",
-        desc: "Hands-on science experiments, environmental discovery, and group presentations.",
+        title: "Corporate Finance & M&A",
+        desc: "Valuation methodologies, mergers & acquisitions, and global capital market dynamics.",
       },
       {
-        title: "Communication & Values",
-        desc: "Daily reading corners, expressive public speaking, and ethical character building.",
+        title: "Risk Analysis & Compliance",
+        desc: "Credit appraisal, treasury management, and corporate risk mitigation frameworks.",
       },
     ],
   },
-  middle: {
-    key: "middle",
-    label: "Middle School",
-    sublabel: "Class 6 to Class 8",
-    badge: "MIDDLE STAGE",
-    age: "Class 6 – 8 | Ages 11 – 13 Years",
-    title: "Inquiry, Collaboration & Emerging Independence",
+  hr: {
+    key: "hr",
+    label: "Human Resource",
+    sublabel: "MBA in HR Management",
+    badge: "AICTE APPROVED • 2 YEARS FULL TIME",
+    age: "Postgraduate Degree | 4 Semesters",
+    title: "Strategic Talent Leadership, Culture & People Analytics",
     description:
-      "Students progress from guided lessons to deeper independent investigation. Modern science laboratories, computer coding, and collaborative assignments nurture critical thinking and leadership skills.",
-    imagePosition: "50% 50%",
-    curriculumFocus: "Inquiry-Based CBSE & Coding Foundations",
+      "The HR MBA program at KCM focuses on cultivating people-centric leadership and strategic talent management. We prepare graduates to resolve organizational challenges and lead corporate talent growth in modern enterprises.",
+    imageSrc: "/assets/kcm/Main_Campus_Auditorium.jpeg",
+    curriculumFocus: "Strategic HRM, Talent Acquisition & Leadership",
     highlights: [
       {
-        title: "Lab-Led Science & Robotics",
-        desc: "Real laboratory experiments, robotics tinkering, and fundamental programming concepts.",
+        title: "Leadership Development Lab",
+        desc: "Interactive space for boardroom simulations, executive role-play, and mock corporate negotiations.",
       },
       {
-        title: "Analytical Research & Teamwork",
-        desc: "Structured research papers, inter-disciplinary projects, and collaborative debates.",
+        title: "HR Analytics & Digital HRIS",
+        desc: "Practical training on modern enterprise HR software, metric-driven hiring, and workforce planning.",
       },
       {
-        title: "Leadership & Club Culture",
-        desc: "Student council opportunities, sports leagues, and public speaking forums.",
+        title: "Labor Law & Organizational Culture",
+        desc: "Comprehensive understanding of labor jurisprudence, employee relations, and organizational psychology.",
       },
     ],
   },
-  secondary: {
-    key: "secondary",
-    label: "Secondary School",
-    sublabel: "Class 9 & Class 10",
-    badge: "SECONDARY BOARD STAGE",
-    age: "Class 9 – 10 | Ages 14 – 16 Years",
-    title: "Focused Board Preparation with Balance",
+  analytics: {
+    key: "analytics",
+    label: "Business Analytics",
+    sublabel: "MBA in Business Analytics",
+    badge: "AICTE APPROVED • 2 YEARS FULL TIME",
+    age: "Postgraduate Degree | 4 Semesters",
+    title: "Big Data, Predictive Intelligence & AI for Business",
     description:
-      "Rigorous CBSE Board examination readiness is paired with structured diagnostics, individualized remediation, lab practicals, and holistic sports to ensure students excel without undue stress.",
-    imagePosition: "75% 50%",
-    curriculumFocus: "CBSE Board Syllabus & Exam Excellence",
+      "Bridges the gap between strategic decision-making and data science. Students master Python, Power BI, SQL, and predictive machine learning models to solve high-stakes business challenges and forecast industry trends.",
+    imageSrc: "/assets/kcm/Advanced_Computer_Laboratory.jpeg",
+    curriculumFocus: "Python, Power BI, Machine Learning & AI",
     highlights: [
       {
-        title: "Board Exam Strategy & Diagnostics",
-        desc: "Regular mock evaluations, past-paper workshops, and structured time management.",
+        title: "AI & Data Science Computing Lab",
+        desc: "High-performance computing cluster for big data processing, Python scripting, and machine learning models.",
       },
       {
-        title: "Advanced Composite Labs",
-        desc: "Hands-on Physics, Chemistry, and Biology practicals following strict CBSE criteria.",
+        title: "Visualization & BI Studio",
+        desc: "Advanced executive dashboards and predictive modeling utilizing Power BI, Tableau, and Excel.",
       },
       {
-        title: "One-on-One Mentoring",
-        desc: "Continuous progress monitoring, remedial doubt-clearing, and guidance for future streams.",
+        title: "Data-Driven Strategic Consulting",
+        desc: "Applying statistical insights to supply chain optimization, customer churn prediction, and revenue strategy.",
       },
     ],
   },
 };
 
-const STAGE_KEYS: StageKey[] = ["pre-primary", "primary", "middle", "secondary"];
+const STAGE_KEYS: StageKey[] = ["marketing", "finance", "hr", "analytics"];
 
 export default function GradeExplorer() {
   const { openEnquiry } = useEnquiry();
-  const [activeStage, setActiveStage] = useState<StageKey>("pre-primary");
+  const [activeStage, setActiveStage] = useState<StageKey>("marketing");
   const stage = STAGES[activeStage];
 
   return (
@@ -146,20 +146,20 @@ export default function GradeExplorer() {
         <div className="grade-header-block">
           <div className="grade-pill-tag">
             <span className="grade-pill-dot" />
-            <span>LEARNING PATHWAYS & STAGES</span>
+            <span>MBA PROGRAMS &amp; SPECIALIZATIONS</span>
           </div>
 
           <h2 id="grade-explorer-title" className="grade-main-heading">
-            A Thoughtful Learning Journey from <span className="grade-accent">Early Years to Class 10.</span>
+            Industry-Aligned MBA Specializations for <span className="grade-accent">Global Leadership.</span>
           </h2>
 
           <p className="grade-header-desc">
-            Karnataka Public School offers a developmentally coherent CBSE educational pathway. Explore each stage below to understand how concept mastery, mentor guidance, and independent thinking evolve across the school journey.
+            Karnataka College of Management offers future-proof MBA specializations affiliated to Bengaluru City University and approved by AICTE. Explore our high-demand management streams designed to launch your corporate career.
           </p>
         </div>
 
         {/* STAGE TABS BAR */}
-        <div className="grade-stage-nav" role="tablist" aria-label="Learning stages">
+        <div className="grade-stage-nav" role="tablist" aria-label="MBA Specializations">
           {STAGE_KEYS.map((key) => {
             const item = STAGES[key];
             const isActive = activeStage === key;
@@ -189,7 +189,11 @@ export default function GradeExplorer() {
           <div className="grade-showcase-media">
             <div
               className="grade-showcase-img"
-              style={{ backgroundPosition: stage.imagePosition }}
+              style={{
+                backgroundImage: `url('${stage.imageSrc}')`,
+                backgroundSize: "cover",
+                backgroundPosition: "center",
+              }}
               role="img"
               aria-label={stage.title}
             />
@@ -242,15 +246,15 @@ export default function GradeExplorer() {
                 onClick={openEnquiry}
                 data-open-enquiry
               >
-                <span>Enquire for {stage.label}</span>
+                <span>Apply for {stage.label}</span>
                 <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.5">
                   <line x1="5" y1="12" x2="19" y2="12" />
                   <polyline points="12 5 19 12 12 19" />
                 </svg>
               </button>
 
-              <a href="#academics" className="grade-secondary-link">
-                <span>View Full Curriculum</span>
+              <a href="#student-life" className="grade-secondary-link">
+                <span>View Placement Record</span>
                 <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.5">
                   <polyline points="6 9 12 15 18 9" />
                 </svg>

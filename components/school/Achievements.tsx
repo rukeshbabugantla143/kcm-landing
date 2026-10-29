@@ -5,42 +5,42 @@ import { useEffect, useRef, useState } from "react";
 const achievements = [
   {
     className: "achievement-board",
-    label: "Board Results",
-    target: 95,
-    suffix: "%+",
-    note: "Sample demo benchmark",
+    label: "Placement Assistance",
+    target: 100,
+    suffix: "%",
+    note: "Dedicated corporate placement support",
     image: "grade",
   },
   {
     className: "achievement-olympiad",
-    label: "Olympiads",
-    target: 28,
-    suffix: "",
-    note: "Sample demo recognitions",
+    label: "Highest Salary Package",
+    target: 12,
+    suffix: ".36 LPA",
+    note: "Top tier campus recruitment offer",
     image: "science",
   },
   {
     className: "achievement-sports",
-    label: "Sports",
-    target: 12,
-    suffix: "",
-    note: "Sample demo medals",
+    label: "Average CTC",
+    target: 7,
+    suffix: ".5 LPA",
+    note: "Competitive management benchmark",
     image: "sports",
   },
   {
     className: "achievement-competitions",
-    label: "Competitions",
-    target: 40,
+    label: "Corporate Partners",
+    target: 150,
     suffix: "+",
-    note: "Sample demo participations",
+    note: "Active global hiring enterprises",
     image: "debate",
   },
   {
     className: "achievement-admissions",
-    label: "University Admissions",
-    target: 1,
-    suffix: ":1",
-    note: "Sample demo counselling",
+    label: "Years of Trust",
+    target: 15,
+    suffix: "+ Yrs",
+    note: "Karnataka Education Trust legacy",
     image: "senior",
   },
 ];
@@ -108,12 +108,11 @@ export default function Achievements() {
       <div className="achievements-inner">
         <div className="achievements-header">
           <div>
-            <div className="section-kicker">ACHIEVEMENTS</div>
-            <h2 id="achievements-title">Celebrating progress without overstating claims.</h2>
+            <div className="section-kicker">PLACEMENT MILESTONES</div>
+            <h2 id="achievements-title">Proven Benchmarks in Management Education.</h2>
           </div>
           <p>
-            The figures shown here are clearly marked sample demo data for layout preview and can be
-            replaced with verified school records.
+            Track record of continuous corporate success, high-impact placements, and global academic immersion.
           </p>
         </div>
 

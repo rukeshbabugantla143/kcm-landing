@@ -7,6 +7,7 @@ const sectionAnimationMap: Record<string, string> = {
   "grade-explorer": "panel",
   about: "image-text",
   academics: "cards",
+  achievements: "cards",
   "learning-approach": "feature",
   facilities: "image-text",
   "student-life": "gallery",

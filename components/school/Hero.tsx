@@ -1,3 +1,5 @@
+"use client";
+
 import EnquiryTrigger from "./enquiry/EnquiryTrigger";
 
 export default function Hero() {
@@ -9,52 +11,63 @@ export default function Hero() {
         <div className="hero-copy">
           <div className="admission-badge reveal">
             <span></span>
-            ADMISSIONS OPEN 2027-28
+            MBA ADMISSIONS OPEN 2026-27 • AICTE APPROVED
           </div>
+
           <h1 id="hero-title" className="reveal">
-            <span>LEARN.</span>
-            <span>DISCOVER.</span>
-            <span>GROW.</span>
+            <span>LEAD.</span>
+            <span>INNOVATE.</span>
+            <span>EXCEL.</span>
           </h1>
+
+          <div className="hero-subtag reveal">
+            Exclusive MBA Excellence in Bangalore
+          </div>
+
           <p className="hero-text reveal">
-            From the first day of school to future-ready learning, we help every student grow with
-            curiosity, confidence and purpose.
+            Karnataka College of Management (KCM) under Karnataka Education Trust (Estd. 2003) is
+            dedicated exclusively to MBA education — featuring 100% placement support, industry expert
+            faculty, free laptop program, and global study tours to Singapore &amp; Dubai.
           </p>
+
           <div className="hero-actions reveal">
             <EnquiryTrigger className="primary-cta">ENQUIRE NOW</EnquiryTrigger>
-            <a className="secondary-cta" href="#admissions">
-              BOOK CAMPUS VISIT
-              <svg viewBox="0 0 24 24" aria-hidden="true">
+            <a className="secondary-cta" href="#grade-explorer">
+              EXPLORE PROGRAMS
+              <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.5" aria-hidden="true">
                 <path d="M5 12h14m-6-6 6 6-6 6" />
               </svg>
             </a>
           </div>
         </div>
 
-        <div className="hero-visual" aria-label="Students at a modern Indian school campus">
+        <div className="hero-visual" aria-label="Karnataka College of Management Campus">
           <div className="photo-shell">
             <img
-              src="/assets/hero-students.png"
-              alt="Indian students from primary to secondary classes standing together on a modern school campus"
+              src="/assets/kcm/home-aboutus.webp"
+              alt="Karnataka College of Management Campus & Scholars"
             />
             <div className="photo-glow" aria-hidden="true"></div>
           </div>
 
           <div className="glass-card card-cbse">
-            <strong>CBSE</strong>
-            <span>Affiliated curriculum</span>
+            <strong>100% Placement</strong>
+            <span>₹12.36 LPA Highest Package</span>
           </div>
+
           <div className="glass-card card-classes">
-            <strong>Pre-KG to Class 10</strong>
-            <span>Foundational &amp; secondary education</span>
+            <strong>AICTE Approved</strong>
+            <span>Bengaluru City University</span>
           </div>
+
           <div className="glass-card card-campus">
-            <strong>Safe Campus</strong>
-            <span>Secure and caring</span>
+            <strong>Global Exposure</strong>
+            <span>Singapore &amp; Dubai Study Tours</span>
           </div>
+
           <div className="glass-card card-learning">
-            <strong>Future-ready Learning</strong>
-            <span>STEM, arts and leadership</span>
+            <strong>Free Laptop</strong>
+            <span>For every MBA scholar</span>
           </div>
         </div>
       </div>

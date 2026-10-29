@@ -1,9 +1,9 @@
 const supportingStrengths = [
   {
     className: "support-tech",
-    badge: "DIGITAL",
-    title: "Technology & Digital Tools",
-    copy: "Smart interactive classrooms, computer labs and responsible digital citizenship integrated into daily learning.",
+    badge: "ENTERPRISE TOOLS",
+    title: "ERP & SAP Enterprise Training",
+    copy: "Hands-on certified training in SAP ERP modules, corporate workflow automation, and financial management systems.",
     icon: (
       <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
         <rect x="2" y="3" width="20" height="14" rx="2" />
@@ -14,36 +14,35 @@ const supportingStrengths = [
   },
   {
     className: "support-creativity",
-    badge: "ARTS",
-    title: "Creativity & Fine Arts",
-    copy: "Visual art, craft, music and dramatic expression woven into everyday experiences to spark original thinking.",
+    badge: "GROOMING",
+    title: "Finishing School & Soft Skills",
+    copy: "Comprehensive corporate grooming covering boardroom etiquette, executive presence, mock interviews, and negotiation.",
     icon: (
       <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
-        <circle cx="13.5" cy="6.5" r=".5" fill="currentColor" />
-        <circle cx="17.5" cy="10.5" r=".5" fill="currentColor" />
-        <circle cx="8.5" cy="7.5" r=".5" fill="currentColor" />
-        <circle cx="6.5" cy="12.5" r=".5" fill="currentColor" />
-        <path d="M12 2C6.5 2 2 6.5 2 12s4.5 10 10 10c.9 0 1.7-.8 1.7-1.8 0-.5-.2-.9-.5-1.3-.3-.4-.5-.9-.5-1.4 0-1 .8-1.9 1.8-1.9H16c3.3 0 6-2.7 6-6 0-5.5-4.5-9.6-10-9.6z" />
+        <path d="M12 2a5 5 0 0 1 5 5v3a5 5 0 0 1-10 0V7a5 5 0 0 1 5-5z" />
+        <path d="M19 11v2a7 7 0 0 1-14 0v-2" />
+        <line x1="12" y1="20" x2="12" y2="22" />
       </svg>
     ),
   },
   {
     className: "support-sports",
-    badge: "WELLNESS",
-    title: "Sports & Physical Fitness",
-    copy: "Structured athletics, team games, yoga and motor skills training building discipline, health and resilience.",
+    badge: "INTELLIGENCE",
+    title: "Business Analytics & Power BI",
+    copy: "Training in Python, Power BI dashboards, Tableau, and predictive analytics to solve complex business problems.",
     icon: (
       <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
-        <circle cx="12" cy="12" r="10" />
-        <path d="m4.93 4.93 4.24 4.24M14.83 9.17l4.24-4.24M14.83 14.83l4.24 4.24M9.17 14.83l-4.24 4.24" />
+        <path d="M18 20V10" />
+        <path d="M12 20V4" />
+        <path d="M6 20v-6" />
       </svg>
     ),
   },
   {
     className: "support-character",
-    badge: "VALUES",
-    title: "Character & Leadership",
-    copy: "Core ethical values, empathy, mutual respect and collaborative leadership habits cultivated across school life.",
+    badge: "GOVERNANCE",
+    title: "Leadership & Ethical Governance",
+    copy: "Inculcating high ethical standards, environmental sustainability, and sound corporate governance into future CXOs.",
     icon: (
       <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
         <path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z" />
@@ -61,11 +60,11 @@ export default function LearningApproach() {
 
       <div className="learning-inner">
         <div className="learning-heading">
-          <div className="section-kicker">LEARNING APPROACH</div>
-          <h2 id="learning-title">Learning that moves from concept to confidence.</h2>
+          <div className="section-kicker">PEDAGOGICAL INNOVATION</div>
+          <h2 id="learning-title">Transformative Pedagogy: Classroom Theory to Boardroom Reality.</h2>
           <p className="learning-intro-sub">
-            Our student-centric model combines strong foundational understanding with practical discovery,
-            modern tools and holistic character building.
+            Our participatory MBA pedagogy combines rigorous academic foundations with Harvard and IIM case
+            studies, semester-wise corporate immersions, and executive mentorship.
           </p>
         </div>
 
@@ -83,24 +82,24 @@ export default function LearningApproach() {
             </div>
 
             <div className="learning-feature-copy">
-              <h3>Concept-based Learning</h3>
+              <h3>Case-Based Business Learning</h3>
               <p>
-                Students build deep, lasting understanding by connecting fundamental ideas across subjects,
-                asking meaningful questions and applying concepts to real challenges.
+                Students analyze real-world corporate challenges from Harvard Business Publishing and top IIM repositories,
+                developing high-conviction decision-making capabilities in fast-changing markets.
               </p>
 
               <ul className="feature-checkpoints">
                 <li>
                   <span className="check-dot">✓</span>
-                  <span>Cross-disciplinary inquiry &amp; reasoning</span>
+                  <span>Harvard &amp; IIM business dilemma case simulations</span>
                 </li>
                 <li>
                   <span className="check-dot">✓</span>
-                  <span>Diagnostic-guided understanding</span>
+                  <span>Mock boardroom strategy debates &amp; financial valuations</span>
                 </li>
                 <li>
                   <span className="check-dot">✓</span>
-                  <span>Practical application beyond textbooks</span>
+                  <span>Live client consulting &amp; industry summer internships</span>
                 </li>
               </ul>
             </div>
@@ -109,13 +108,13 @@ export default function LearningApproach() {
           <div className="learning-right-col">
             <article className="learning-image-card">
               <img
-                src="/assets/grade-stage-strip.png"
-                alt="Students collaborating in modern experiential learning activities"
+                src="/assets/kcm/Interactive_Smart_Classroom.jpeg"
+                alt="Interactive Smart Classroom at Karnataka College of Management"
               />
               <div className="image-card-overlay">
                 <span className="image-card-tag">PRACTICAL LEARNING</span>
-                <strong>Experiential &amp; Hands-on Discovery</strong>
-                <p>Interactive STEM labs, science experiments and creative projects turn lessons into lived, confident understanding.</p>
+                <strong>Semester-Wise Corporate Plant &amp; Field Immersions</strong>
+                <p>Scheduled industrial visits to leading manufacturing hubs, technology parks, and banking headquarters across India.</p>
               </div>
             </article>
 

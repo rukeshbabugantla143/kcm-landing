@@ -13,102 +13,100 @@ interface AcademicStage {
 
 const stages: AcademicStage[] = [
   {
-    key: "pre-primary",
-    stageBadge: "FOUNDATIONAL STAGE",
-    gradeBadge: "Pre-KG – UKG",
-    title: "Pre-Primary School",
+    key: "placements",
+    stageBadge: "CAREER CELL",
+    gradeBadge: "150+ Recruiters",
+    title: "100% Placement Support",
     summary:
-      "Play-led discovery, language readiness, phonics and early numeracy in a warm, expressive learning space.",
+      "A dedicated corporate relations hub ensuring every MBA student receives intensive grooming, mock interviews, and guaranteed placement drives.",
     accentColor: "#F7961E",
     highlights: [
-      "Activity-based sensory & play discovery",
-      "Early literacy, phonics & storytelling",
-      "Basic numeracy and spatial awareness",
-      "Fine motor skills & artistic exploration",
+      "100% placement support with top MNCs & tech giants",
+      "Highest salary package of ₹12.36 LPA (Avg ₹7.5 LPA)",
+      "Minimum 10 campus interview opportunities guaranteed",
+      "Paid corporate internships at Fortune 500 enterprises",
     ],
     icon: (
       <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
-        <rect x="3" y="8" width="7" height="7" rx="1.5" />
-        <rect x="14" y="8" width="7" height="7" rx="1.5" />
-        <rect x="8.5" y="2.5" width="7" height="7" rx="1.5" />
-        <circle cx="6.5" cy="11.5" r="1" fill="currentColor" />
-        <circle cx="17.5" cy="11.5" r="1" fill="currentColor" />
-        <circle cx="12" cy="6" r="1" fill="currentColor" />
+        <path d="M22 11.08V12a10 10 0 1 1-5.93-9.14" />
+        <polyline points="22 4 12 14.01 9 11.01" />
       </svg>
     ),
   },
   {
-    key: "primary",
-    stageBadge: "PREPARATORY STAGE",
-    gradeBadge: "Classes 1 – 5",
-    title: "Primary School",
+    key: "faculty",
+    stageBadge: "MENTORSHIP",
+    gradeBadge: "PhD & Ex-CXOs",
+    title: "Industry Expert Faculty",
     summary:
-      "Deep foundational understanding through guided inquiry, reading habits, arithmetic and expressive confidence.",
+      "Learn directly from distinguished PhD academicians, ex-corporate directors, and seasoned management consultants with over 20 years experience.",
     accentColor: "#C63A87",
     highlights: [
-      "Structured English & regional language fluency",
-      "Conceptual mathematics & logical puzzles",
-      "Environmental discovery & simple projects",
-      "Creative expression through arts & physical play",
+      "70%+ PhD qualified professors and research scholars",
+      "Mentorship from corporate CXOs and senior directors",
+      "Harvard Business Publishing & IIM case studies",
+      "One-on-one executive coaching and career guidance",
     ],
     icon: (
       <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
-        <path d="M4 19.5v-15A2.5 2.5 0 0 1 6.5 2H20v20H6.5a2.5 2.5 0 0 1-2.5-2.5Z" />
-        <path d="M6 2v20" />
+        <path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2" />
+        <circle cx="9" cy="7" r="4" />
+        <path d="M23 21v-2a4 4 0 0 0-3-3.87" />
+        <path d="M16 3.13a4 4 0 0 1 0 7.75" />
       </svg>
     ),
   },
   {
-    key: "middle",
-    stageBadge: "MIDDLE STAGE",
-    gradeBadge: "Classes 6 – 8",
-    title: "Middle School",
+    key: "global",
+    stageBadge: "GLOBAL IMMERSION",
+    gradeBadge: "Singapore & Dubai",
+    title: "International Study Tours",
     summary:
-      "Transitioning from concrete knowledge to analytical reasoning, scientific experimentation and collaborative thinking.",
+      "Expand your worldview with curated international academic tours to Singapore and Dubai, connecting with multinational corporations and foreign universities.",
     accentColor: "#8A1A72",
     highlights: [
-      "Integrated Science & Mathematics lab work",
-      "Introductory computer science & digital tools",
-      "Social science inquiry & collaborative debates",
-      "Organized athletics, fitness & leadership duties",
+      "Educational study tours to Singapore & Dubai business hubs",
+      "Cross-border industry visits & financial exchange tours",
+      "Global business networking and cultural diversity exposure",
+      "International management certificates and seminars",
     ],
     icon: (
       <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
-        <path d="M10 2v7.31L4.1 18.2A2 2 0 0 0 5.8 21h12.4a2 2 0 0 0 1.7-2.8L14 9.31V2" />
-        <line x1="8.5" y1="2" x2="15.5" y2="2" />
-        <line x1="7" y1="14" x2="17" y2="14" />
+        <circle cx="12" cy="12" r="10" />
+        <line x1="2" y1="12" x2="22" y2="12" />
+        <path d="M12 2a15.3 15.3 0 0 1 4 10 15.3 15.3 0 0 1-4 10 15.3 15.3 0 0 1-4-10 15.3 15.3 0 0 1 4-10z" />
       </svg>
     ),
   },
   {
-    key: "secondary",
-    stageBadge: "SECONDARY STAGE",
-    gradeBadge: "Classes 9 – 10",
-    title: "Secondary School",
+    key: "tech",
+    stageBadge: "DIGITAL EDGE",
+    gradeBadge: "Free Laptop",
+    title: "Free Laptop & AI Labs",
     summary:
-      "Rigorous CBSE curriculum preparation with diagnostic tests, specialized science labs and focused mentoring.",
+      "Every admitted MBA scholar receives a complimentary high-performance laptop pre-configured with industry analytics, ERP, and BI tools.",
     accentColor: "#6A0030",
     highlights: [
-      "Targeted CBSE board syllabus mastery",
-      "Regular diagnostic evaluations & personal feedback",
-      "Dedicated Science & Computer lab practicals",
-      "Exam strategy, career orientation & resilience",
+      "Brand-new high-end laptop for every enrolled scholar",
+      "Hands-on AI & Business Analytics computing lab",
+      "ERP & SAP training with practical industry modules",
+      "Tableau, Power BI, Python, and advanced Excel mastery",
     ],
     icon: (
       <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
-        <path d="m3 8 9-5 9 5-9 5z" />
-        <path d="M6 11v6l6 3 6-3v-6" />
-        <path d="M21 8v6" />
+        <rect x="2" y="3" width="20" height="14" rx="2" />
+        <line x1="8" y1="21" x2="16" y2="21" />
+        <line x1="12" y1="17" x2="12" y2="21" />
       </svg>
     ),
   },
 ];
 
 const academicStats = [
-  { label: "CBSE Curriculum", value: "Pre-KG to 10th" },
-  { label: "Board Results", value: "100% Success" },
-  { label: "Lab Workstations", value: "1:1 Student Access" },
-  { label: "Assessment", value: "Continuous & Holistic" },
+  { label: "Placement Support", value: "100%" },
+  { label: "Highest Package", value: "₹12.36 LPA" },
+  { label: "Average Package", value: "₹7.5 LPA" },
+  { label: "Corporate Partners", value: "150+ MNCs" },
 ];
 
 export default function Academics() {
@@ -122,14 +120,15 @@ export default function Academics() {
           <div className="academics-title-wrap">
             <div className="section-kicker">
               <span className="kicker-sparkle" aria-hidden="true">✦</span>
-              LEARNING PATHWAYS
+              THE KCM ADVANTAGE
             </div>
             <h2 id="academics-title">
-              Learning pathways with room to explore, focus and lead.
+              Why Choose Karnataka College of Management?
             </h2>
             <p className="academics-lead">
-              From early foundational years to Class 10 CBSE preparation, our structured curriculum
-              nurtures curiosity, conceptual depth and confident character at every stage of the student journey.
+              At KCM Bangalore, our entire ecosystem—from infrastructure to faculty—is 100% focused on
+              the Master of Business Administration. We provide a holistic environment that bridges
+              classroom theory and boardroom execution.
             </p>
           </div>
 
@@ -174,7 +173,7 @@ export default function Academics() {
 
               <div className="stage-card-footer">
                 <a href="#grade-explorer" className="stage-explore-link">
-                  <span>Explore Stage Details</span>
+                  <span>Explore Specialization</span>
                   <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.5" strokeLinecap="round" strokeLinejoin="round" aria-hidden="true">
                     <path d="M5 12h14m-6-6 6 6-6 6" />
                   </svg>
@@ -187,31 +186,31 @@ export default function Academics() {
         {/* Unified Pedagogical Banner */}
         <div className="academics-pillars-banner">
           <div className="pillars-intro">
-            <span className="pillars-tag">OUR ACADEMIC STANDARD</span>
-            <h4>Continuous care across every learning milestone.</h4>
-            <p>Every student benefits from individualized teacher attention, diagnostic feedback and high CBSE academic standards.</p>
+            <span className="pillars-tag">OUR ACADEMIC PROMISE</span>
+            <h4>Continuous Development &amp; Industry Exposure Across All 4 Semesters.</h4>
+            <p>Every MBA scholar benefits from personalized mentor attention, industrial visits, and corporate readiness bootcamps.</p>
           </div>
 
           <div className="pillars-list">
             <div className="pillar-item">
               <span className="pillar-num">01</span>
               <div>
-                <strong>Concept Over Cramming</strong>
-                <p>In-depth understanding of fundamentals rather than rote memorization.</p>
+                <strong>Industrial Visits Every Semester</strong>
+                <p>Hands-on exposure to manufacturing plants, corporate tech headquarters, and financial hubs.</p>
               </div>
             </div>
             <div className="pillar-item">
               <span className="pillar-num">02</span>
               <div>
-                <strong>Diagnostic Feedback</strong>
-                <p>Frequent formative checks to identify and support learning gaps early.</p>
+                <strong>Minimum 10 Placement Interviews</strong>
+                <p>Guaranteed corporate interview drives until every student secures their desired placement role.</p>
               </div>
             </div>
             <div className="pillar-item">
               <span className="pillar-num">03</span>
               <div>
-                <strong>Integrated Values</strong>
-                <p>Ethics, teamwork and communication built into daily school routines.</p>
+                <strong>Corporate CXO Mentorship</strong>
+                <p>Interactive sessions, guest masterclasses, and project reviews with industry leaders.</p>
               </div>
             </div>
           </div>

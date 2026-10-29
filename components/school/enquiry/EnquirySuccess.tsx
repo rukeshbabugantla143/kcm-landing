@@ -12,13 +12,13 @@ export default function EnquirySuccess({ onClose }: EnquirySuccessProps) {
           <path d="M5 12.5 9.4 17 19 7" />
         </svg>
       </div>
-      <span>DEMO UI SUBMISSION</span>
-      <h3>ENQUIRY RECEIVED</h3>
+      <span>APPLICATION RECEIVED</span>
+      <h3>ADMISSION ENQUIRY SUBMITTED</h3>
       <p>
-        Thank you for reaching out. Our admissions team will contact you regarding the next steps.
+        Thank you for your interest in Karnataka College of Management (KCM). Our MBA admissions counselor will connect with you shortly with eligibility assessment and program brochures.
       </p>
       <div className="success-actions">
-        <a href="#admissions" onClick={onClose}>BOOK CAMPUS VISIT</a>
+        <a href="#admissions" onClick={onClose}>VIEW ADMISSION STEPS</a>
         <button type="button" onClick={onClose}>CLOSE</button>
       </div>
     </div>

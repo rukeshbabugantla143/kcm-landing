@@ -3,13 +3,14 @@
 import { FormEvent, useState } from "react";
 
 const admissionOptions = [
-  "Pre-Primary / KG",
-  "Primary (Classes 1–5)",
-  "Middle School (Classes 6–8)",
-  "Secondary School (Classes 9–10)",
+  "MBA in Marketing Management",
+  "MBA in Finance Management",
+  "MBA in Human Resource Management",
+  "MBA in Business Analytics",
+  "General MBA Admission Enquiry",
 ];
 
-const academicYears = ["2027–28", "2028–29", "2029–30"];
+const academicYears = ["Batch 2026–2028", "Batch 2027–2029"];
 
 const contactMethods = [
   {
@@ -41,10 +42,10 @@ const contactMethods = [
 ];
 
 type EnquiryValues = {
-  parentName: string;
+  candidateName: string;
   mobile: string;
   email: string;
-  studentName: string;
+  undergradDegree: string;
   admissionFor: string;
   academicYear: string;
   contactMethod: string;
@@ -54,21 +55,21 @@ type EnquiryValues = {
 type EnquiryErrors = Partial<Record<keyof EnquiryValues, string>>;
 
 const initialValues: EnquiryValues = {
-  parentName: "",
+  candidateName: "",
   mobile: "",
   email: "",
-  studentName: "",
-  admissionFor: "",
-  academicYear: "2027–28",
-  contactMethod: "",
+  undergradDegree: "",
+  admissionFor: "MBA in Marketing Management",
+  academicYear: "Batch 2026–2028",
+  contactMethod: "WhatsApp",
   message: "",
 };
 
 function validate(values: EnquiryValues) {
   const errors: EnquiryErrors = {};
 
-  if (!values.parentName.trim()) {
-    errors.parentName = "Parent / guardian name is required.";
+  if (!values.candidateName.trim()) {
+    errors.candidateName = "Candidate full name is required.";
   }
 
   if (!values.mobile.trim()) {
@@ -77,16 +78,16 @@ function validate(values: EnquiryValues) {
     errors.mobile = "Enter a valid 10-digit Indian mobile number.";
   }
 
-  if (!values.studentName.trim()) {
-    errors.studentName = "Student name is required.";
+  if (!values.undergradDegree.trim()) {
+    errors.undergradDegree = "Graduation stream/degree is required.";
   }
 
   if (!values.admissionFor) {
-    errors.admissionFor = "Choose the admission stage.";
+    errors.admissionFor = "Choose your preferred MBA specialization.";
   }
 
   if (!values.academicYear) {
-    errors.academicYear = "Academic year is required.";
+    errors.academicYear = "Academic batch is required.";
   }
 
   if (
@@ -122,18 +123,19 @@ export default function EnquiryForm({ onSuccess }: { onSuccess: () => void }) {
     <form className="enquiry-form" onSubmit={handleSubmit} noValidate>
       <div className="form-grid">
         <label className="field">
-          <span>Parent / Guardian Name *</span>
+          <span>Candidate Full Name *</span>
           <input
-            value={values.parentName}
-            onChange={(event) => updateValue("parentName", event.target.value)}
-            aria-invalid={Boolean(errors.parentName)}
+            value={values.candidateName}
+            onChange={(event) => updateValue("candidateName", event.target.value)}
+            aria-invalid={Boolean(errors.candidateName)}
             aria-describedby={
-              errors.parentName ? "parentName-error" : undefined
+              errors.candidateName ? "candidateName-error" : undefined
             }
             autoComplete="name"
+            placeholder="e.g. Rahul Sharma"
           />
-          {errors.parentName && (
-            <em id="parentName-error">{errors.parentName}</em>
+          {errors.candidateName && (
+            <em id="candidateName-error">{errors.candidateName}</em>
           )}
         </label>
 
@@ -149,6 +151,7 @@ export default function EnquiryForm({ onSuccess }: { onSuccess: () => void }) {
               aria-invalid={Boolean(errors.mobile)}
               aria-describedby={errors.mobile ? "mobile-error" : undefined}
               autoComplete="tel-national"
+              placeholder="9876543210"
             />
           </div>
           {errors.mobile && <em id="mobile-error">{errors.mobile}</em>}
@@ -163,29 +166,32 @@ export default function EnquiryForm({ onSuccess }: { onSuccess: () => void }) {
             aria-invalid={Boolean(errors.email)}
             aria-describedby={errors.email ? "email-error" : undefined}
             autoComplete="email"
+            placeholder="rahul@example.com"
           />
           {errors.email && <em id="email-error">{errors.email}</em>}
         </label>
 
         <label className="field">
-          <span>Student Name *</span>
+          <span>Undergraduate Degree *</span>
           <input
-            value={values.studentName}
-            onChange={(event) => updateValue("studentName", event.target.value)}
-            aria-invalid={Boolean(errors.studentName)}
+            value={values.undergradDegree}
+            onChange={(event) => updateValue("undergradDegree", event.target.value)}
+            aria-invalid={Boolean(errors.undergradDegree)}
             aria-describedby={
-              errors.studentName ? "studentName-error" : undefined
+              errors.undergradDegree ? "undergradDegree-error" : undefined
             }
             autoComplete="off"
+            placeholder="e.g. B.Com, BBA, BCA, B.Tech, B.Sc"
           />
-          {errors.studentName && (
-            <em id="studentName-error">{errors.studentName}</em>
+          {errors.undergradDegree && (
+            <em id="undergradDegree-error">{errors.undergradDegree}</em>
           )}
         </label>
       </div>
+
       <div className="form-grid compact-grid">
         <label className="field">
-          <span>Admission For *</span>
+          <span>Preferred Specialization *</span>
           <select
             value={values.admissionFor}
             onChange={(event) =>
@@ -207,7 +213,7 @@ export default function EnquiryForm({ onSuccess }: { onSuccess: () => void }) {
         </label>
 
         <label className="field">
-          <span>Academic Year *</span>
+          <span>Academic Batch *</span>
           <select
             value={values.academicYear}
             onChange={(event) =>
@@ -255,16 +261,17 @@ export default function EnquiryForm({ onSuccess }: { onSuccess: () => void }) {
       </div>
 
       <label className="field message-field">
-        <span>Anything you'd like us to know?</span>
+        <span>Queries regarding Admissions, Placements or Hostels?</span>
         <textarea
           value={values.message}
           onChange={(event) => updateValue("message", event.target.value)}
           rows={3}
+          placeholder="Ask us anything regarding entrance exams, eligibility, fee structure, or hostel availability..."
         />
       </label>
 
       <button className="enquiry-submit" type="submit">
-        SEND ENQUIRY
+        SUBMIT APPLICATION ENQUIRY
         <svg viewBox="0 0 24 24" aria-hidden="true">
           <path d="M5 12h14m-6-6 6 6-6 6" />
         </svg>

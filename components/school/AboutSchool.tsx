@@ -7,12 +7,12 @@ export default function AboutSchool() {
       <div className="about-inner">
         <div className="about-media">
           <img
-            src="/assets/hero-students.png"
-            alt="Indian students on a modern school campus"
+            src="/assets/kcm/college.png"
+            alt="Karnataka College of Management Campus"
           />
           <div className="about-media-card">
-            <strong>Pre-KG to Class 10</strong>
-            <span>One nurturing journey</span>
+            <strong>15+ Years Legacy</strong>
+            <span>Karnataka Education Trust (Estd. 2003)</span>
           </div>
           <div className="about-3d-mark" aria-hidden="true">
             <span></span>
@@ -21,14 +21,15 @@ export default function AboutSchool() {
         </div>
 
         <div className="about-copy">
-          <div className="section-kicker">ABOUT SCHOOL</div>
+          <div className="section-kicker">ABOUT KCM BANGALORE</div>
           <h2 id="about-title">
-            A premium Indian school shaped around curiosity and character.
+            Exclusive MBA Excellence Under Karnataka Education Trust.
           </h2>
           <p>
-            Karnataka Public School brings together strong academics, thoughtful
-            pastoral care and future-ready opportunities in a campus designed
-            for confident, joyful learning.
+            Karnataka College of Management is exclusively dedicated to molding future business leaders
+            through our premier MBA program. Approved by AICTE, Ministry of Education, Govt. of India,
+            and affiliated with Bengaluru City University, KCM provides an immersive, 100% MBA-focused
+            atmosphere with experiential learning and corporate mentorship.
           </p>
 
           <div className="about-values">
@@ -42,8 +43,8 @@ export default function AboutSchool() {
               <div>
                 <h3>Our Vision</h3>
                 <p>
-                  To inspire compassionate learners who think deeply, act
-                  responsibly and grow with purpose.
+                  To be a premier global center for business education and managerial excellence,
+                  nurturing ethical corporate leaders who create sustainable impact.
                 </p>
               </div>
             </article>
@@ -58,8 +59,8 @@ export default function AboutSchool() {
               <div>
                 <h3>Our Mission</h3>
                 <p>
-                  To create rigorous, caring classrooms where every child
-                  discovers strengths and builds confidence.
+                  To deliver rigorous, industry-integrated management education through innovative
+                  pedagogy, corporate exposure, and continuous professional development.
                 </p>
               </div>
             </article>

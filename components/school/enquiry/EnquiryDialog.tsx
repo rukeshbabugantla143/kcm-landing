@@ -95,25 +95,24 @@ export default function EnquiryDialog() {
         onKeyDown={handleKeyDown}>
         <div className="enquiry-visual">
           <img
-            src="/assets/hero-students.png"
-            alt="Indian students on a premium school campus"
+            src="/assets/kcm/college.png"
+            alt="Karnataka College of Management Campus"
           />
           <div className="enquiry-visual-overlay">
-            <span>ADMISSIONS</span>
-            <strong>2027–28</strong>
+            <span>MBA ADMISSIONS</span>
+            <strong>BATCH 2026–28</strong>
             <h2>
-              Let&apos;s Find the
+              Launch Your Global
               <br />
-              Right Learning Path.
+              Corporate Career.
             </h2>
             <p id="enquiry-description">
-              Tell us a little about your child and our admissions team will
-              help you with the next steps.
+              Connect with our admissions directors for eligibility evaluation, specialization counseling, and placement details.
             </p>
             <div className="enquiry-trust">
-              <span>Pre-KG to Class 10</span>
-              <span>Campus Visit Available</span>
-              <span>Admission Guidance</span>
+              <span>100% Placement Support</span>
+              <span>₹12.36 LPA Highest CTC</span>
+              <span>Free Laptop Program</span>
             </div>
           </div>
           <div className="enquiry-shape" aria-hidden="true">
@@ -126,7 +125,7 @@ export default function EnquiryDialog() {
           <div className="enquiry-panel-header">
             <div>
               <span>ADMISSION ENQUIRY</span>
-              <h2 id="enquiry-title">It only takes a minute to get started.</h2>
+              <h2 id="enquiry-title">Apply for MBA Admissions 2026.</h2>
             </div>
             <button
               className="enquiry-close"

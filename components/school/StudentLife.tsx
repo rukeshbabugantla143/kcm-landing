@@ -3,137 +3,140 @@
 import { useState } from "react";
 import { useEnquiry } from "./enquiry/EnquiryContext";
 
-type CategoryFilter = "All" | "Sports" | "Arts" | "STEM" | "Leadership";
+type CategoryFilter = "All" | "Placements" | "Clubs" | "Global" | "Cultural";
 
 interface LifeActivity {
   id: string;
-  category: "Sports" | "Arts" | "STEM" | "Leadership";
+  category: "Placements" | "Clubs" | "Global" | "Cultural";
   categoryLabel: string;
   badge: string;
   title: string;
   description: string;
   tag: string;
-  imagePosition: string;
-  gradeSpan: string;
+  imgSrc: string;
+  scopeSpan: string;
 }
 
 const ACTIVITIES: LifeActivity[] = [
   {
-    id: "sports",
-    category: "Sports",
-    categoryLabel: "Sports & Athletics",
-    badge: "Athletics & Fitness",
-    title: "Championship Sports & Physical Training",
+    id: "placements-cell",
+    category: "Placements",
+    categoryLabel: "Career Acceleration",
+    badge: "100% Support",
+    title: "Dedicated Corporate Placement Cell",
     description:
-      "Dedicated coaching in cricket nets, basketball, football turf, badminton, and athletics with annual inter-school leagues.",
-    tag: "Daily Coaching & State Meets",
-    imagePosition: "0% 50%",
-    gradeSpan: "Grade 1 – Class 10",
+      "Bridging the gap between academia and corporate leadership. Organizing resume clinics, aptitude bootcamps, and guaranteed 10+ interview opportunities.",
+    tag: "Highest: ₹12.36 LPA",
+    imgSrc: "/assets/kcm/Main_Campus_Auditorium.jpeg",
+    scopeSpan: "All MBA Scholars",
   },
   {
-    id: "robotics",
-    category: "STEM",
-    categoryLabel: "STEM & Innovation",
-    badge: "STEM & Prototyping",
-    title: "Robotics & Innovation Tinkering Lab",
+    id: "coding-ai",
+    category: "Clubs",
+    categoryLabel: "Tech & Innovation",
+    badge: "AI & Computing",
+    title: "KCM Coding Cell & AI Research Lab",
     description:
-      "Hands-on Arduino electronics, Lego mechanics, and early Python coding where classroom science evolves into real innovations.",
-    tag: "Hands-on Tinkering & Hackathons",
-    imagePosition: "50% 50%",
-    gradeSpan: "Grade 3 – Class 10",
+      "Hands-on Python analytics, data visualization hackathons, and machine learning research applied to strategic corporate decision-making.",
+    tag: "Weekly AI Hackathons",
+    imgSrc: "/assets/kcm/Advanced_Computer_Laboratory.jpeg",
+    scopeSpan: "Analytics & Tech Clubs",
   },
   {
-    id: "music",
-    category: "Arts",
-    categoryLabel: "Performing Arts",
-    badge: "Vocal & Instrumental",
-    title: "Classical & Western Music Studio",
+    id: "fintech-hub",
+    category: "Clubs",
+    categoryLabel: "Finance & Markets",
+    badge: "FinTech Society",
+    title: "FinTech Society & Investment Club",
     description:
-      "Carnatic, Hindustani, and Western instrumental mastery across keyboard, acoustic guitar, violin, and multi-part choral ensembles.",
-    tag: "Annual Concert & Recitals",
-    imagePosition: "12.5% 50%",
-    gradeSpan: "Pre-KG – Class 10",
+      "Real-time stock market simulations, equity valuation workshops, algorithmic trading analyses, and portfolio management competitions.",
+    tag: "Trading Simulations",
+    imgSrc: "/assets/kcm/Fully_Automated_Central_Library.jpeg",
+    scopeSpan: "Finance Specialization",
   },
   {
-    id: "dance",
-    category: "Arts",
-    categoryLabel: "Performing Arts",
-    badge: "Classical & Folk",
-    title: "Classical & Contemporary Dance Academy",
-    description:
-      "Disciplined training in Bharatanatyam, regional folk dance, and expressive contemporary choreography building poise and stage presence.",
-    tag: "State Festival Honours",
-    imagePosition: "25% 50%",
-    gradeSpan: "Pre-KG – Class 10",
-  },
-  {
-    id: "art",
-    category: "Arts",
-    categoryLabel: "Visual Arts",
-    badge: "Visual & Studio Arts",
-    title: "Fine Arts, Sketching & Pottery Studio",
-    description:
-      "Watercolour canvases, charcoal sketching, ceramics, and mixed-media design where students express boundless visual creativity.",
-    tag: "Annual Student Art Expo",
-    imagePosition: "37.5% 50%",
-    gradeSpan: "Pre-KG – Class 10",
-  },
-  {
-    id: "debate",
-    category: "Leadership",
-    categoryLabel: "Leadership & Oratory",
-    badge: "Oratory & MUN",
-    title: "Model UN & Parliamentary Debate Society",
-    description:
-      "Fostering articulate public speaking, diplomatic elocution, policy drafting, and competitive debate in prestigious inter-school forums.",
-    tag: "Citywide Debate Laurels",
-    imagePosition: "62.5% 50%",
-    gradeSpan: "Grade 5 – Class 10",
-  },
-  {
-    id: "clubs",
-    category: "STEM",
-    categoryLabel: "Clubs & Community",
-    badge: "Environment & Science",
-    title: "Eco-Warriors & Science Society",
-    description:
-      "Student-directed campus biodiversity conservation, botanical gardens, paper recycling drives, and environmental sustainability audits.",
-    tag: "Green Campus Initiatives",
-    imagePosition: "75% 50%",
-    gradeSpan: "Grade 3 – Class 10",
-  },
-  {
-    id: "trips",
-    category: "Leadership",
-    categoryLabel: "Experiential Learning",
-    badge: "Field Expeditions",
-    title: "Heritage Expeditions & Nature Camps",
-    description:
-      "Outbound learning journeys visiting Karnataka's historic monuments, science planetariums, biosphere reserves, and leadership adventure camps.",
-    tag: "Term-Wise Expeditions",
-    imagePosition: "87.5% 50%",
-    gradeSpan: "Grade 1 – Class 10",
-  },
-  {
-    id: "events",
-    category: "Leadership",
+    id: "kalasangama",
+    category: "Cultural",
     categoryLabel: "Campus Celebrations",
-    badge: "Annual Milestone",
-    title: "Tarang: Annual Cultural & Sports Fiesta",
+    badge: "Annual Fest",
+    title: "Kalasangama: National Management Fest",
     description:
-      "A flagship multi-day celebration highlighting theatrical plays, music recitals, athletic championships, and vibrant community pride.",
-    tag: "Grand School Celebration",
-    imagePosition: "100% 50%",
-    gradeSpan: "All Students (Pre-KG – 10)",
+      "KCM's flagship annual cultural and management fest uniting top B-school scholars across India for business simulation games, debate, and music.",
+    tag: "Flagship Annual Mega Fest",
+    imgSrc: "/assets/kcm/Interactive_Smart_Classroom.jpeg",
+    scopeSpan: "Inter-College Fest",
+  },
+  {
+    id: "global-tours",
+    category: "Global",
+    categoryLabel: "Global Exposure",
+    badge: "International",
+    title: "Singapore & Dubai International Study Tours",
+    description:
+      "Comprehensive global business immersion visits to multinational headquarters, international ports, financial centers, and partner campuses.",
+    tag: "Singapore & Dubai",
+    imgSrc: "/assets/kcm/college.png",
+    scopeSpan: "Global MBA Batch",
+  },
+  {
+    id: "ecell",
+    category: "Clubs",
+    categoryLabel: "Entrepreneurship",
+    badge: "E-Cell Hub",
+    title: "Entrepreneurship & Incubation Hub",
+    description:
+      "Mentoring student founders through business plan formulation, pitch deck reviews with angel investors, and patent filing support.",
+    tag: "Venture Ideation & Funding",
+    imgSrc: "/assets/kcm/home-aboutus.webp",
+    scopeSpan: "Startup Founders",
+  },
+  {
+    id: "social-impact",
+    category: "Cultural",
+    categoryLabel: "Social Initiatives",
+    badge: "CSR Wing",
+    title: "Rotaract & Social Community Initiatives",
+    description:
+      "Instilling social responsibility through blood donation drives, NGO partnerships, rural education mentoring, and environmental campaigns.",
+    tag: "Community Outreach",
+    imgSrc: "/assets/kcm/Cafeteria_&_Student_Lounge.jpeg",
+    scopeSpan: "Social Leadership",
+  },
+  {
+    id: "sports-arena",
+    category: "Cultural",
+    categoryLabel: "Sports & Fitness",
+    badge: "Athletics",
+    title: "KCM Corporate Sports League",
+    description:
+      "Inter-collegiate basketball championships, cricket tournaments, badminton leagues, and daily fitness routines fostering sportsmanship.",
+    tag: "Annual Sports Trophy",
+    imgSrc: "/assets/kcm/Outdoor_Sports_&_Athletics_Arena.jpeg",
+    scopeSpan: "Sports & Gymnasium",
   },
 ];
 
 const CATEGORIES: { label: string; value: CategoryFilter }[] = [
   { label: "All Activities", value: "All" },
-  { label: "Sports & Athletics", value: "Sports" },
-  { label: "Performing & Fine Arts", value: "Arts" },
-  { label: "STEM & Innovation", value: "STEM" },
-  { label: "Leadership & Culture", value: "Leadership" },
+  { label: "Placements & Internships", value: "Placements" },
+  { label: "Academic Clubs", value: "Clubs" },
+  { label: "Global Immersion", value: "Global" },
+  { label: "Fests & Culture", value: "Cultural" },
+];
+
+const RECRUITERS = [
+  { name: "TCS", src: "/assets/kcm/TCS.webp" },
+  { name: "Toyota", src: "/assets/kcm/Toyota.png" },
+  { name: "Axis Bank", src: "/assets/kcm/Axis_Bank.png" },
+  { name: "Qualcomm", src: "/assets/kcm/Qualcomm.png" },
+  { name: "LTIMindtree", src: "/assets/kcm/LTIMindtree.png" },
+  { name: "Muthoot Finance", src: "/assets/kcm/Muthoot_Finance.png" },
+  { name: "GlobalLogic", src: "/assets/kcm/GlobalLogic.jpg" },
+  { name: "Alorica", src: "/assets/kcm/Alorica.png" },
+  { name: "Bajaj Allianz", src: "/assets/kcm/Bajaj_Allianz.png" },
+  { name: "TripFactory", src: "/assets/kcm/TripFactory.png" },
+  { name: "Media Assist", src: "/assets/kcm/Media_Assist.png" },
+  { name: "Adecco", src: "/assets/kcm/Adeccor.png" },
 ];
 
 export default function StudentLife() {
@@ -154,16 +157,18 @@ export default function StudentLife() {
           <div className="student-life-titles">
             <div className="student-life-pill-tag">
               <span className="student-life-pill-dot" />
-              <span>BEYOND THE CLASSROOM</span>
+              <span>CAREERS &amp; CAMPUS CULTURE</span>
             </div>
             <h2 id="student-life-title" className="student-life-main-heading">
-              A Vibrant Campus Rhythm <span className="student-life-accent">Nurturing Passion & Character.</span>
+              A Vibrant Corporate Ecosystem <span className="student-life-accent">Forging Industry Leaders.</span>
             </h2>
           </div>
 
           <div className="student-life-lead">
             <p>
-              At Karnataka Public School, co-curricular learning is an essential pillar of holistic growth. From competitive athletics and fine arts academies to robotics labs and elocution forums, our Pre-KG to Class 10 students build lifelong confidence and friendships.
+              At Karnataka College of Management, education transcends textbooks. From high-stakes placement bootcamps
+              and international corporate tours to student clubs and our flagship fest Kalasangama, KCM prepares
+              scholars for both professional triumph and lifelong leadership.
             </p>
           </div>
         </div>
@@ -178,8 +183,8 @@ export default function StudentLife() {
               </svg>
             </div>
             <div className="life-pillar-info">
-              <strong>20+ Active Clubs</strong>
-              <span>Arts, Tech, Sports & Debating</span>
+              <strong>₹12.36 LPA</strong>
+              <span>Highest Salary Package</span>
             </div>
           </div>
 
@@ -195,8 +200,8 @@ export default function StudentLife() {
               </svg>
             </div>
             <div className="life-pillar-info">
-              <strong>100% Student Inclusion</strong>
-              <span>Pre-KG to Class 10 Participation</span>
+              <strong>150+ Recruiters</strong>
+              <span>Fortune 500 &amp; Global MNCs</span>
             </div>
           </div>
 
@@ -214,8 +219,8 @@ export default function StudentLife() {
               </svg>
             </div>
             <div className="life-pillar-info">
-              <strong>State & District Trophies</strong>
-              <span>Athletics & Cultural Laurels</span>
+              <strong>100% Placement</strong>
+              <span>Guaranteed 10+ Drives</span>
             </div>
           </div>
 
@@ -224,21 +229,54 @@ export default function StudentLife() {
           <div className="life-pillar-item">
             <div className="life-pillar-icon">
               <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2">
-                <rect x="3" y="4" width="18" height="18" rx="2" ry="2" />
-                <line x1="16" y1="2" x2="16" y2="6" />
-                <line x1="8" y1="2" x2="8" y2="6" />
-                <line x1="3" y1="10" x2="21" y2="10" />
+                <circle cx="12" cy="12" r="10" />
+                <line x1="2" y1="12" x2="22" y2="12" />
+                <path d="M12 2a15.3 15.3 0 0 1 4 10 15.3 15.3 0 0 1-4 10 15.3 15.3 0 0 1-4-10 15.3 15.3 0 0 1 4-10z" />
               </svg>
             </div>
             <div className="life-pillar-info">
-              <strong>Annual Fiesta: Tarang</strong>
-              <span>Week-Long Creative Showcase</span>
+              <strong>Singapore &amp; Dubai</strong>
+              <span>International Immersion Tours</span>
             </div>
           </div>
         </div>
 
+        {/* CORPORATE RECRUITERS STRIP */}
+        <div style={{ margin: "40px 0 20px" }}>
+          <div style={{ textAlign: "center", marginBottom: "20px" }}>
+            <span style={{ fontSize: "11px", letterSpacing: "2px", fontWeight: 800, textTransform: "uppercase", color: "var(--deep-navy)", opacity: 0.7 }}>
+              Top Hiring Partners &amp; Corporate Network
+            </span>
+          </div>
+          <div style={{ display: "flex", flexWrap: "wrap", justifyContent: "center", alignItems: "center", gap: "20px" }}>
+            {RECRUITERS.map((recruiter) => (
+              <div
+                key={recruiter.name}
+                style={{
+                  background: "#fff",
+                  padding: "12px 24px",
+                  borderRadius: "16px",
+                  boxShadow: "0 4px 16px rgba(0,0,0,0.04)",
+                  border: "1px solid rgba(0,0,0,0.06)",
+                  display: "flex",
+                  alignItems: "center",
+                  justifyContent: "center",
+                  minWidth: "120px",
+                  height: "58px",
+                }}
+              >
+                <img
+                  src={recruiter.src}
+                  alt={recruiter.name}
+                  style={{ maxHeight: "32px", maxWidth: "90px", objectFit: "contain" }}
+                />
+              </div>
+            ))}
+          </div>
+        </div>
+
         {/* CATEGORY FILTER TABS */}
-        <div className="student-life-filter-bar" role="tablist" aria-label="Student life categories">
+        <div className="student-life-filter-bar" role="tablist" aria-label="Campus life categories">
           {CATEGORIES.map((cat) => {
             const isActive = activeCategory === cat.value;
             const count =
@@ -270,31 +308,29 @@ export default function StudentLife() {
               className="life-card"
               onClick={() => setSelectedActivity(act)}
             >
-              {/* IMAGE WRAPPER WITH PRECISE CROP */}
               <div className="life-card-media">
                 <div
                   className="life-card-img"
                   style={{
-                    backgroundPosition: act.imagePosition,
+                    backgroundImage: `url('${act.imgSrc}')`,
+                    backgroundSize: "cover",
+                    backgroundPosition: "center",
                   }}
                   aria-hidden="true"
                 />
                 <div className="life-card-gradient-overlay" />
 
-                {/* TOP META ROW */}
                 <div className="life-card-top-row">
                   <span className="life-card-category-badge">{act.badge}</span>
-                  <span className="life-card-grade-badge">{act.gradeSpan}</span>
+                  <span className="life-card-grade-badge">{act.scopeSpan}</span>
                 </div>
 
-                {/* BOTTOM FLOATING TAG */}
                 <div className="life-card-tag-pill">
                   <span className="tag-pulse" />
                   <span>{act.tag}</span>
                 </div>
               </div>
 
-              {/* CARD BODY CONTENT */}
               <div className="life-card-content">
                 <h3 className="life-card-title">{act.title}</h3>
                 <p className="life-card-desc">{act.description}</p>
@@ -315,12 +351,12 @@ export default function StudentLife() {
         {/* BOTTOM CO-CURRICULAR ENQUIRY BANNER */}
         <div className="student-life-bottom-banner">
           <div className="life-bottom-content">
-            <span className="life-bottom-badge">HOLISTIC STUDENT DEVELOPMENT</span>
+            <span className="life-bottom-badge">CAREER ADVANCEMENT &amp; PLACEMENTS</span>
             <h3 className="life-bottom-title">
-              Want your child to discover their creative & athletic talents?
+              Ready to Accelerate Your Corporate Management Career?
             </h3>
             <p className="life-bottom-desc">
-              Schedule a campus tour to explore our state-of-the-art sports facilities, fine arts studios, robotics labs, and talk with our passionate mentors.
+              Schedule a personalized career counseling session, view our complete placement records, and meet our senior faculty mentors.
             </p>
           </div>
           <div className="life-bottom-actions">
@@ -330,7 +366,7 @@ export default function StudentLife() {
               onClick={openEnquiry}
               data-open-enquiry
             >
-              Enquire About Student Life →
+              Enquire About Admissions →
             </button>
           </div>
         </div>
@@ -353,60 +389,26 @@ export default function StudentLife() {
                 onClick={() => setSelectedActivity(null)}
                 aria-label="Close modal"
               >
-                ✕
+                ×
               </button>
-
-              <div className="life-modal-media">
-                <div
-                  className="life-modal-img"
-                  style={{ backgroundPosition: selectedActivity.imagePosition }}
-                />
-                <div className="life-modal-media-overlay" />
-                <div className="life-modal-badge-row">
-                  <span className="life-modal-badge">{selectedActivity.badge}</span>
-                  <span className="life-modal-grade">{selectedActivity.gradeSpan}</span>
-                </div>
+              <div className="life-modal-header">
+                <span className="life-modal-badge">{selectedActivity.badge}</span>
+                <span className="life-modal-grade">{selectedActivity.scopeSpan}</span>
               </div>
-
-              <div className="life-modal-body">
-                <span className="life-modal-category">{selectedActivity.categoryLabel}</span>
-                <h3 className="life-modal-title">{selectedActivity.title}</h3>
-                <p className="life-modal-desc">{selectedActivity.description}</p>
-
-                <div className="life-modal-features">
-                  <div className="life-modal-feat">
-                    <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="#10b981" strokeWidth="2.5">
-                      <polyline points="20 6 9 17 4 12" />
-                    </svg>
-                    <span>Guided by experienced certified instructors</span>
-                  </div>
-                  <div className="life-modal-feat">
-                    <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="#10b981" strokeWidth="2.5">
-                      <polyline points="20 6 9 17 4 12" />
-                    </svg>
-                    <span>Integrated into weekly school timetable & clubs</span>
-                  </div>
-                  <div className="life-modal-feat">
-                    <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="#10b981" strokeWidth="2.5">
-                      <polyline points="20 6 9 17 4 12" />
-                    </svg>
-                    <span>Regular inter-school & state tournament exposure</span>
-                  </div>
-                </div>
-
-                <div className="life-modal-footer">
-                  <button
-                    type="button"
-                    className="life-modal-cta"
-                    onClick={() => {
-                      setSelectedActivity(null);
-                      openEnquiry();
-                    }}
-                    data-open-enquiry
-                  >
-                    Enquire for 2027-28 Admissions
-                  </button>
-                </div>
+              <h3 className="life-modal-title">{selectedActivity.title}</h3>
+              <p className="life-modal-tagline">{selectedActivity.tag}</p>
+              <p className="life-modal-desc">{selectedActivity.description}</p>
+              <div className="life-modal-actions">
+                <button
+                  type="button"
+                  className="life-modal-btn"
+                  onClick={() => {
+                    setSelectedActivity(null);
+                    openEnquiry();
+                  }}
+                >
+                  Apply for Admission
+                </button>
               </div>
             </div>
           </div>

@@ -1,24 +1,24 @@
-const streams = [
+const specializations = [
   {
     className: "stream-science",
-    title: "SCIENCE",
-    subjects: "Physics, Chemistry, Mathematics, Biology, Computer Science",
-    resources: "Science labs, robotics access, research projects",
-    direction: "Engineering, medicine, research, data and technology",
+    title: "BUSINESS ANALYTICS",
+    subjects: "Python for Business, Machine Learning, Power BI, Big Data, SQL",
+    resources: "High-Performance Computing Cluster, AI & Visualization Labs",
+    direction: "Business Analyst, Data Strategy Consultant, Analytics Manager",
   },
   {
     className: "stream-commerce",
-    title: "COMMERCE",
-    subjects: "Accountancy, Business Studies, Economics, Mathematics",
-    resources: "Case studies, entrepreneurship labs, financial literacy",
-    direction: "Business, finance, management, economics and law",
+    title: "FINANCIAL MANAGEMENT",
+    subjects: "Corporate Valuation, Investment Banking, FinTech, Risk Analysis, M&A",
+    resources: "Real-Time Trading Hub, Financial Modeling Workstations, SAP ERP",
+    direction: "Investment Banker, Equity Analyst, Wealth Manager, CFO Track",
   },
   {
     className: "stream-humanities",
-    title: "HUMANITIES",
-    subjects: "History, Political Science, Psychology, Sociology, English",
-    resources: "Debate forums, research writing, social inquiry",
-    direction: "Civil services, law, design, media, policy and liberal arts",
+    title: "MARKETING & HR",
+    subjects: "Digital Branding, Talent Acquisition, Consumer Insights, Strategic HRM",
+    resources: "Digital Studio, Consumer Behavior Lab, Boardroom Role-Play",
+    direction: "Brand Manager, Digital Strategy Lead, HR Business Partner",
   },
 ];
 
@@ -27,11 +27,11 @@ export default function SeniorSecondary() {
     <section className="senior-secondary" id="senior-secondary" aria-labelledby="senior-title">
       <div className="senior-inner">
         <div className="senior-header">
-          <div className="section-kicker">SENIOR SECONDARY STREAMS</div>
-          <h2 id="senior-title">Focused pathways for university and life beyond school.</h2>
+          <div className="section-kicker">ADVANCED MBA TRACKS</div>
+          <h2 id="senior-title">Specialized Pathways for Executive Leadership.</h2>
           <p>
-            A mature academic environment combines subject depth, resources, career direction and
-            individual counselling for Classes 11-12.
+            An intensive postgraduate management environment combining functional depth, live corporate
+            consulting, and personalized mentorship across all 4 semesters.
           </p>
         </div>
 
@@ -42,26 +42,22 @@ export default function SeniorSecondary() {
         </div>
 
         <div className="stream-grid">
-          {streams.map((stream) => (
-            <article className={`stream-card ${stream.className}`} key={stream.title}>
+          {specializations.map((spec) => (
+            <article className={`stream-card ${spec.className}`} key={spec.title}>
               <div className="stream-line" aria-hidden="true"></div>
-              <h3>{stream.title}</h3>
+              <h3>{spec.title}</h3>
               <dl>
                 <div>
-                  <dt>Subjects</dt>
-                  <dd>{stream.subjects}</dd>
+                  <dt>Core Modules</dt>
+                  <dd>{spec.subjects}</dd>
                 </div>
                 <div>
-                  <dt>Labs / Resources</dt>
-                  <dd>{stream.resources}</dd>
+                  <dt>Labs &amp; Certifications</dt>
+                  <dd>{spec.resources}</dd>
                 </div>
                 <div>
-                  <dt>Career Direction</dt>
-                  <dd>{stream.direction}</dd>
-                </div>
-                <div>
-                  <dt>Counselling</dt>
-                  <dd>Stream mentoring, aptitude conversations and college planning support.</dd>
+                  <dt>Corporate Roles</dt>
+                  <dd>{spec.direction}</dd>
                 </div>
               </dl>
             </article>

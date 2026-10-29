@@ -3,12 +3,11 @@
 import { useState } from "react";
 import { useEnquiry } from "./enquiry/EnquiryContext";
 
-type FacilityGroup = "All" | "Academics" | "Sports" | "Arts" | "Safety";
+type FacilityGroup = "All" | "Academics" | "Sports" | "Safety";
 
 interface FacilityItem {
   id: string;
   index: number;
-  pos: string;
   category: string;
   group: FacilityGroup;
   label: string;
@@ -17,23 +16,44 @@ interface FacilityItem {
   stat: string;
   spec: string;
   highlights: string[];
+  imgSrc: string;
   icon: React.ReactNode;
 }
 
 const FACILITIES_DATA: FacilityItem[] = [
   {
-    id: "smart",
+    id: "library",
     index: 1,
-    pos: "0% 50%",
-    category: "ACADEMICS",
+    category: "RESEARCH",
     group: "Academics",
-    label: "Smart Classrooms",
-    tagline: "Multimedia-enabled, ergonomic learning spaces",
+    label: "Fully Automated Central Library",
+    tagline: "50,000+ MBA volumes, Harvard Business Review archives & digital journals",
     description:
-      "Interactive smart touch panels and flexible ergonomic seating support focused, multimedia-enabled conceptual learning from Pre-KG to Class 10 with natural daylighting and sound-insulated layouts.",
-    stat: "100% Digitally Enabled",
-    spec: "Pre-KG to Class 10 • Smart Interactive Touch Panels",
-    highlights: ["Interactive Touch Panels", "Ergonomic Student Seating", "Natural Daylighting", "Audio-Visual Teaching"],
+      "An automated knowledge hub specifically designed to cater to the academic needs of MBA scholars. It houses 50,000+ volumes, rare management classics, Harvard Business Review archives, and subscriptions to global financial dailies.",
+    stat: "50,000+ Volumes",
+    spec: "Automated RFID • EBSCO Digital Database",
+    highlights: ["50,000+ Curated Books", "Harvard Business Review Archives", "Quiet Study & Research Lounges", "EBSCO & Digital Database Terminals"],
+    imgSrc: "/assets/kcm/Fully_Automated_Central_Library.jpeg",
+    icon: (
+      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
+        <path d="M4 19.5v-15A2.5 2.5 0 0 1 6.5 2H20v20H6.5a2.5 2.5 0 0 1-2.5-2.5Z" />
+        <path d="M6 2v20" />
+      </svg>
+    ),
+  },
+  {
+    id: "smart",
+    index: 2,
+    category: "LEARNING",
+    group: "Academics",
+    label: "Interactive Smart Classrooms",
+    tagline: "4K interactive touch panels, tiered executive seating & hybrid audio",
+    description:
+      "Interactive 4K smart touch panels and flexible tiered executive seating support focused case discussions, corporate presentations, and international guest webinars with natural daylighting and sound insulation.",
+    stat: "100% 4K Smart Enabled",
+    spec: "Tiered Executive Seating • Lecture Capture",
+    highlights: ["4K Interactive Touch Panels", "Tiered Executive Seating", "Lecture Recording System", "Hybrid Webinar Infrastructure"],
+    imgSrc: "/assets/kcm/Interactive_Smart_Classroom.jpeg",
     icon: (
       <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
         <rect x="2" y="3" width="20" height="14" rx="2" />
@@ -43,39 +63,18 @@ const FACILITIES_DATA: FacilityItem[] = [
     ),
   },
   {
-    id: "science",
-    index: 2,
-    pos: "11.11% 50%",
-    category: "DISCOVERY",
-    group: "Academics",
-    label: "Science Labs",
-    tagline: "Hands-on experiential discovery stations",
-    description:
-      "Fully equipped Physics, Chemistry, and Biology experimental stations where students test scientific hypotheses safely under certified teacher supervision with individual apparatus stations.",
-    stat: "Individual Stations",
-    spec: "Class 1 to 10 • Guided Laboratory Supervision",
-    highlights: ["Safety Compliant Layout", "Modern Lab Apparatus", "Guided Teacher Supervision", "Individual Experiment Stations"],
-    icon: (
-      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
-        <path d="M10 2v7.31L4.1 18.2A2 2 0 0 0 5.8 21h12.4a2 2 0 0 0 1.7-2.8L14 9.31V2" />
-        <line x1="8.5" y1="2" x2="15.5" y2="2" />
-        <line x1="7" y1="14" x2="17" y2="14" />
-      </svg>
-    ),
-  },
-  {
     id: "computer",
     index: 3,
-    pos: "22.22% 50%",
     category: "TECHNOLOGY",
     group: "Academics",
-    label: "Computer Lab",
-    tagline: "Coding, algorithmic thinking & digital skills",
+    label: "Advanced Computing & AI Lab",
+    tagline: "High-performance cluster for Python, R, Power BI & SAP ERP",
     description:
-      "Modern high-speed computer labs develop coding fundamentals, algorithmic thinking, research capabilities, and responsible digital citizenship with cyber-filtered high-speed internet.",
-    stat: "1:1 Student Workstations",
-    spec: "Class 1 to 10 • High-Speed Cyber-Safe Access",
-    highlights: ["1:1 Workstation Ratio", "High-Speed Internet", "Cyber-Filtered Access", "Coding & Logic Curriculum"],
+      "Equipped with modern high-speed computing workstations, dedicated business analytics clusters, and certified tools for Python, R, Tableau, and enterprise SAP modules.",
+    stat: "1:1 Student Terminals",
+    spec: "Dual-Band High-Speed Wi-Fi • Big Data Tools",
+    highlights: ["Python & R Workstations", "Tableau & Power BI Dashboards", "SAP ERP Enterprise Modules", "High-Speed Dedicated Fiber"],
+    imgSrc: "/assets/kcm/Advanced_Computer_Laboratory.jpeg",
     icon: (
       <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
         <rect x="2" y="3" width="20" height="14" rx="2" />
@@ -85,61 +84,80 @@ const FACILITIES_DATA: FacilityItem[] = [
     ),
   },
   {
-    id: "robotics",
+    id: "auditorium",
     index: 4,
-    pos: "33.33% 50%",
-    category: "INNOVATION",
+    category: "CONVENTIONS",
     group: "Academics",
-    label: "Robotics & STEM Lab",
-    tagline: "Tinkering, robotics sets & prototype challenges",
+    label: "Main Campus Auditorium",
+    tagline: "500+ seat acoustic hall for corporate conclaves & guest lectures",
     description:
-      "Makerspace environments introduce robotics kits, Arduino microcontrollers, basic electronics, and collaborative engineering challenges where classroom principles evolve into real working inventions.",
-    stat: "Maker Toolkits & Sets",
-    spec: "Class 3 to 10 • Electronics & Robotics Sets",
-    highlights: ["STEM Maker Toolkits", "Modular Robotics Sets", "Hands-on Circuitry", "Team Project Challenges"],
+      "A state-of-the-art auditorium equipped with professional acoustics, presentation lighting, and high-definition projection systems hosting national management symposiums and corporate pre-placement drives.",
+    stat: "500+ Seating Capacity",
+    spec: "Acoustic Audio • Corporate Symposiums",
+    highlights: ["Clear Acoustic Sound", "Dual Presentation Displays", "500+ Seating Capacity", "Corporate Conclaves Venue"],
+    imgSrc: "/assets/kcm/Main_Campus_Auditorium.jpeg",
     icon: (
       <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
-        <rect x="3" y="11" width="18" height="10" rx="2" />
-        <circle cx="12" cy="5" r="2" />
-        <path d="M12 7v4" />
-        <line x1="8" y1="16" x2="8" y2="16" />
-        <line x1="16" y1="16" x2="16" y2="16" />
+        <path d="M3 10h18M3 14h18M3 6h18a2 2 0 0 1 2 2v10a2 2 0 0 1-2 2H3a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2z" />
       </svg>
     ),
   },
   {
-    id: "library",
+    id: "cafeteria",
     index: 5,
-    pos: "44.44% 50%",
-    category: "KNOWLEDGE",
-    group: "Arts",
-    label: "Central Library",
-    tagline: "5,000+ volumes, reading lounges & research journals",
+    category: "LIFESTYLE",
+    group: "Safety",
+    label: "Cafeteria & Student Lounge",
+    tagline: "Hygienic multi-cuisine dining & vibrant breakout space",
     description:
-      "Quiet, sunlit reading lounges and a curated multi-genre collection of fiction, non-fiction, encyclopaedias, and academic journals nurture a lifelong reading habit and deep scholarly curiosity.",
-    stat: "5,000+ Curated Books",
-    spec: "Pre-KG to Class 10 • Quiet Reading Lounges",
-    highlights: ["5,000+ Curated Books", "Quiet Study Lounges", "Periodicals & Journals", "Age-Wise Literature"],
+      "A welcoming dining and informal discussion lounge serving wholesome North and South Indian cuisine, fresh juices, and espresso in an immaculate, hygienic environment.",
+    stat: "Multi-Cuisine Dining",
+    spec: "Hygienic Mess • Indoor & Outdoor Seating",
+    highlights: ["Wholesome Multi-Cuisine", "Hygienic Kitchen Standards", "Breakout Discussion Spaces", "Fresh Refreshments All Day"],
+    imgSrc: "/assets/kcm/Cafeteria_&_Student_Lounge.jpeg",
     icon: (
       <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
-        <path d="M4 19.5v-15A2.5 2.5 0 0 1 6.5 2H20v20H6.5a2.5 2.5 0 0 1-2.5-2.5Z" />
-        <path d="M6 2v20" />
+        <path d="M18 8h1a4 4 0 0 1 0 8h-1" />
+        <path d="M2 8h16v9a4 4 0 0 1-4 4H6a4 4 0 0 1-4-4V8z" />
+        <line x1="6" y1="1" x2="6" y2="4" />
+        <line x1="10" y1="1" x2="10" y2="4" />
+        <line x1="14" y1="1" x2="14" y2="4" />
+      </svg>
+    ),
+  },
+  {
+    id: "hostel",
+    index: 6,
+    category: "RESIDENCE",
+    group: "Safety",
+    label: "Premium Residential Hostel Block",
+    tagline: "Separate furnished hostels for men & women with 24/7 security",
+    description:
+      "Comfortable on-campus accommodation with furnished rooms, dedicated study tables, high-speed Wi-Fi, laundry facilities, and round-the-clock security and resident warden supervision.",
+    stat: "24/7 Monitored Residence",
+    spec: "Separate Hostels • High-Speed Wi-Fi",
+    highlights: ["24/7 Warden Supervision", "Biometric Access Control", "Dedicated Study Lounges", "Hygienic Mess Facilities"],
+    imgSrc: "/assets/kcm/Premium_Hostel_Residential_Block.jpeg",
+    icon: (
+      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
+        <path d="M3 9l9-7 9 7v11a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2z" />
+        <polyline points="9 22 9 12 15 12 15 22" />
       </svg>
     ),
   },
   {
     id: "sports",
-    index: 6,
-    pos: "55.55% 50%",
+    index: 7,
     category: "WELLNESS",
     group: "Sports",
-    label: "Sports & Athletics",
-    tagline: "Spacious multi-courts, football turf & cricket nets",
+    label: "Outdoor Sports & Athletics Arena",
+    tagline: "Basketball courts, cricket nets, badminton & fitness gym",
     description:
-      "Spacious outdoor sports grounds, dedicated cricket practice nets, basketball courts, badminton arenas, and child-safe play areas foster endurance, teamwork, sportsmanship, and physical fitness.",
-    stat: "Multi-Sport Infrastructure",
-    spec: "Pre-KG to Class 10 • Certified Physical Coaches",
-    highlights: ["Spacious Playfields", "Basketball & Badminton", "Professional PE Coaches", "Daily Athletic Routines"],
+      "Encouraging physical fitness, endurance, and teamwork with outdoor basketball and volleyball courts, cricket nets, indoor table tennis, and a dedicated gymnasium.",
+    stat: "Multi-Sport Arena",
+    spec: "Outdoor Courts • Indoor Gymnasium",
+    highlights: ["Basketball & Volleyball Courts", "Cricket Practice Nets", "Badminton & Table Tennis", "Modern Fitness Equipment"],
+    imgSrc: "/assets/kcm/Outdoor_Sports_&_Athletics_Arena.jpeg",
     icon: (
       <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
         <circle cx="12" cy="12" r="10" />
@@ -148,82 +166,18 @@ const FACILITIES_DATA: FacilityItem[] = [
     ),
   },
   {
-    id: "music-art",
-    index: 7,
-    pos: "66.66% 50%",
-    category: "CREATIVITY",
-    group: "Arts",
-    label: "Music & Fine Arts",
-    tagline: "Acoustic music studio & visual art workshop",
-    description:
-      "Acoustically treated music studios and visual art workshops give students the space for vocal practice, keyboards, guitars, painting, pottery, and creative expression under expert mentors.",
-    stat: "Acoustic Art Studios",
-    spec: "Pre-KG to Class 10 • Vocal & Instrumental Mentorship",
-    highlights: ["Acoustic Music Studio", "Art & Craft Easels", "Vocal & Instrument Training", "Student Art Galleries"],
-    icon: (
-      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
-        <circle cx="13.5" cy="6.5" r=".5" fill="currentColor" />
-        <circle cx="17.5" cy="10.5" r=".5" fill="currentColor" />
-        <circle cx="8.5" cy="7.5" r=".5" fill="currentColor" />
-        <circle cx="6.5" cy="12.5" r=".5" fill="currentColor" />
-        <path d="M12 2C6.5 2 2 6.5 2 12s4.5 10 10 10c.9 0 1.7-.8 1.7-1.8 0-.5-.2-.9-.5-1.3-.3-.4-.5-.9-.5-1.4 0-1 .8-1.9 1.8-1.9H16c3.3 0 6-2.7 6-6 0-5.5-4.5-9.6-10-9.6z" />
-      </svg>
-    ),
-  },
-  {
-    id: "auditorium",
-    index: 8,
-    pos: "77.77% 50%",
-    category: "COMMUNITY",
-    group: "Safety",
-    label: "Auditorium & Stage",
-    tagline: "500+ seat multi-purpose performance venue",
-    description:
-      "A state-of-the-art auditorium equipped with professional acoustics, stage lighting, and audio-visual setups hosts daily morning assemblies, theatre plays, cultural fests, and guest lectures.",
-    stat: "500+ Seating Capacity",
-    spec: "All Grades • Stage Lighting & Acoustic Audio",
-    highlights: ["Clear Acoustic Sound", "Stage Lighting Setup", "500+ Seating Capacity", "All-School Assemblies"],
-    icon: (
-      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
-        <path d="M3 10h18M3 14h18M3 6h18a2 2 0 0 1 2 2v10a2 2 0 0 1-2 2H3a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2z" />
-      </svg>
-    ),
-  },
-  {
-    id: "transport",
-    index: 9,
-    pos: "88.88% 50%",
-    category: "SAFETY",
-    group: "Safety",
-    label: "Safe Transport Fleet",
-    tagline: "GPS-tracked fleet with female bus attendants",
-    description:
-      "Our expansive fleet of school buses features live GPS telemetry, speed governors, CCTV cameras, first-aid kits, and trained female attendants on every run ensuring safe, reliable daily commutes across Bengaluru.",
-    stat: "GPS Live Tracking",
-    spec: "Bengaluru Arterial Routes • Female Attendants on Board",
-    highlights: ["GPS Live Tracking", "Female Bus Attendants", "Speed Governed Buses", "Clear Route Tracking"],
-    icon: (
-      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
-        <rect x="3" y="4" width="18" height="12" rx="2" />
-        <circle cx="7" cy="18" r="2" />
-        <circle cx="17" cy="18" r="2" />
-        <path d="M19 16H5M9 8h6" />
-      </svg>
-    ),
-  },
-  {
     id: "security",
-    index: 10,
-    pos: "100% 50%",
+    index: 8,
     category: "SECURITY",
     group: "Safety",
-    label: "24/7 Campus Security",
-    tagline: "Gated entry, verified visitor passes & full CCTV",
+    label: "24/7 Campus Security & Anti-Ragging Cell",
+    tagline: "Gated entry, verified visitor logs & complete CCTV coverage",
     description:
-      "Comprehensive multi-tier safety including round-the-clock trained security guards, electronic visitor verification gates, perimeter fencing, and full high-definition CCTV coverage across all campus zones.",
-    stat: "24/7 Monitored Campus",
-    spec: "Gated Perimeter • HD CCTV Coverage",
-    highlights: ["Comprehensive CCTV", "Visitor Verification Gates", "Campus Boundary Safety", "Trained Security Personnel"],
+      "Comprehensive multi-tier safety including trained security personnel, electronic visitor verification gates, perimeter fencing, full HD CCTV coverage, and a zero-tolerance Anti-Ragging committee.",
+    stat: "100% Monitored Campus",
+    spec: "Gated Perimeter • Anti-Ragging Compliance",
+    highlights: ["Comprehensive CCTV", "Visitor Verification System", "Zero-Tolerance Anti-Ragging", "Trained Security Personnel"],
+    imgSrc: "/assets/kcm/college.png",
     icon: (
       <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
         <path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z" />
@@ -234,67 +188,89 @@ const FACILITIES_DATA: FacilityItem[] = [
 ];
 
 const CATEGORIES: { label: string; value: FacilityGroup; count: number }[] = [
-  { label: "All Spaces", value: "All", count: 10 },
+  { label: "All Spaces", value: "All", count: 8 },
   { label: "Academics & Labs", value: "Academics", count: 4 },
-  { label: "Sports & Fitness", value: "Sports", count: 1 },
-  { label: "Arts & Library", value: "Arts", count: 2 },
-  { label: "Safety & Fleet", value: "Safety", count: 3 },
+  { label: "Sports & Wellness", value: "Sports", count: 1 },
+  { label: "Campus & Hostels", value: "Safety", count: 3 },
 ];
 
 const CAMPUS_PILLARS = [
   {
-    icon: "🌿",
-    title: "5-Acre Green Campus",
-    desc: "Spacious, pedestrian-first grounds designed for outdoor exploration and sports in Yelahanka Hobli.",
+    icon: (
+      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
+        <path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z" />
+        <circle cx="12" cy="10" r="3" />
+      </svg>
+    ),
+    tag: "STRATEGIC LOCATION",
+    title: "Yelahanka Bengaluru Campus",
+    desc: "Conveniently located on Hegde Nagar Main Road, Yelahanka, with fast connectivity to tech parks, airport, and metro.",
   },
   {
-    icon: "🔬",
-    title: "Experiential STEM Labs",
-    desc: "Composite science, robotics maker kits, and high-speed computer labs aligned with NEP 2020.",
+    icon: (
+      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
+        <path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z" />
+        <path d="m9 12 2 2 4-4" />
+      </svg>
+    ),
+    tag: "ACCREDITED EXCELLENCE",
+    title: "AICTE & BCU Approved",
+    desc: "Approved by AICTE and affiliated to Bengaluru City University, maintaining premier academic rigor and industry compliance.",
   },
   {
-    icon: "🛡️",
-    title: "Zero-Compromise Safety",
-    desc: "24/7 security personnel, gated visitor verification, and comprehensive high-definition CCTV coverage.",
+    icon: (
+      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
+        <rect x="2" y="3" width="20" height="14" rx="2" />
+        <line x1="2" y1="20" x2="22" y2="20" />
+      </svg>
+    ),
+    tag: "FREE LAPTOP PROGRAM",
+    title: "Tech-Enabled MBA Hub",
+    desc: "Complimentary laptop for every MBA scholar, 100% 4K smart classrooms, and dedicated data analytics cluster.",
   },
   {
-    icon: "🚌",
-    title: "Safe GPS Transport",
-    desc: "Speed-governed buses with live GPS tracking and dedicated female attendants across Bengaluru.",
+    icon: (
+      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
+        <rect x="2" y="7" width="20" height="14" rx="2" ry="2" />
+        <path d="M16 21V5a2 2 0 0 0-2-2h-4a2 2 0 0 0-2 2v16" />
+      </svg>
+    ),
+    tag: "PLACEMENT ADVANTAGE",
+    title: "100% Placement Assurance",
+    desc: "Dedicated Corporate Relations Hub connecting students to 150+ multinational hiring partners with ₹12.36 LPA peak CTC.",
   },
 ];
 
 export default function Facilities() {
   const { openEnquiry } = useEnquiry();
   const [activeCategory, setActiveCategory] = useState<FacilityGroup>("All");
-  const [activeId, setActiveId] = useState<string>("smart");
+  const [activeId, setActiveId] = useState<string>("cafeteria");
 
   const filteredFacilities =
     activeCategory === "All"
       ? FACILITIES_DATA
       : FACILITIES_DATA.filter((item) => item.group === activeCategory);
 
-  const activeIndex = filteredFacilities.findIndex((item) => item.id === activeId);
   const current =
-    activeIndex !== -1
-      ? filteredFacilities[activeIndex]
-      : filteredFacilities[0] || FACILITIES_DATA[0];
+    filteredFacilities.find((item) => item.id === activeId) ??
+    filteredFacilities[0] ??
+    FACILITIES_DATA[0];
 
-  const handleCategoryChange = (cat: FacilityGroup) => {
-    setActiveCategory(cat);
-    const newFiltered =
-      cat === "All"
-        ? FACILITIES_DATA
-        : FACILITIES_DATA.filter((item) => item.group === cat);
-    if (!newFiltered.some((item) => item.id === activeId)) {
-      setActiveId(newFiltered[0].id);
+  const handleCategoryChange = (group: FacilityGroup) => {
+    setActiveCategory(group);
+    const matched =
+      group === "All"
+        ? FACILITIES_DATA[0]
+        : FACILITIES_DATA.find((item) => item.group === group);
+    if (matched) {
+      setActiveId(matched.id);
     }
   };
 
   const handlePrev = () => {
     const currentIdx = filteredFacilities.findIndex((item) => item.id === current.id);
-    const nextIdx = currentIdx <= 0 ? filteredFacilities.length - 1 : currentIdx - 1;
-    setActiveId(filteredFacilities[nextIdx].id);
+    const prevIdx = currentIdx <= 0 ? filteredFacilities.length - 1 : currentIdx - 1;
+    setActiveId(filteredFacilities[prevIdx].id);
   };
 
   const handleNext = () => {
@@ -313,19 +289,19 @@ export default function Facilities() {
           <div className="facilities-header-copy">
             <div className="section-kicker">
               <span className="kicker-pulse-dot" aria-hidden="true"></span>
-              CAMPUS &amp; 5-ACRE INFRASTRUCTURE
+              CAMPUS &amp; INFRASTRUCTURE
             </div>
-            <h2 id="facilities-title">Spaces designed for discovery, safety and school life.</h2>
+            <h2 id="facilities-title">World-Class Infrastructure for MBA Scholars.</h2>
             <p>
-              Explore modern, safe and well-equipped environments that inspire academic excellence,
-              active wellbeing and creative confidence from Pre-KG to Class 10.
+              Explore modern, tech-enabled environments that inspire business acumen,
+              collaborative research, and corporate readiness at Karnataka College of Management.
             </p>
           </div>
 
           <div className="facilities-top-actions">
             <div className="facilities-nav-controls" aria-label="Facility slider controls">
               <span className="facility-counter">
-                <strong>{String(current.index).padStart(2, "0")}</strong> / 10
+                <strong>{String(current.index).padStart(2, "0")}</strong> / 08
               </span>
               <div className="nav-btn-group">
                 <button
@@ -381,7 +357,9 @@ export default function Facilities() {
           <div className="stage-photo-column">
             <div
               className="facility-photo-viewport"
-              style={{ "--facility-bg-pos": current.pos } as React.CSSProperties}
+              style={{
+                backgroundImage: `url('${current.imgSrc}')`,
+              }}
               role="img"
               aria-label={current.label}
             >
@@ -396,7 +374,7 @@ export default function Facilities() {
               </div>
 
               <div className="photo-bottom-caption">
-                <span className="caption-tag">YELAHANKA HOBLI CAMPUS</span>
+                <span className="caption-tag">KCM BANGALORE CAMPUS</span>
                 <h3 className="caption-title">{current.label}</h3>
               </div>
             </div>
@@ -443,49 +421,47 @@ export default function Facilities() {
                   <span>Book Campus Walkthrough</span>
                 </button>
 
-                <a href="tel:+919071887788" className="stage-call-direct" title="Call Admissions Helpline">
+                <a href="tel:+919606994048" className="stage-call-direct" title="Call Admissions Helpline">
                   <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.2" strokeLinecap="round" strokeLinejoin="round">
                     <path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72 12.84 12.84 0 0 0 .7 2.81 2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45 12.84 12.84 0 0 0 2.81.7A2 2 0 0 1 22 16.92z" />
                   </svg>
-                  <span>Helpline: +91 90718 87788</span>
+                  <span>Helpline: +91 96069 94048</span>
                 </a>
               </div>
             </div>
           </div>
         </div>
 
-        {/* Interactive Facility Cards Rail */}
+        {/* Facility Cards Selector Rail */}
         <div className="facilities-cards-selector">
           <div className="selector-header">
-            <span className="selector-title">SELECT CAMPUS SPACE TO EXPLORE ({filteredFacilities.length})</span>
-            <span className="selector-hint">Click any facility card to view details</span>
+            <div>
+              <span className="selector-title">EXPLORE ALL 8 CAMPUS SPACES</span>
+              <span className="selector-hint">Click any facility to view high-resolution photos &amp; specifications</span>
+            </div>
+            <span className="selector-count-badge">8 Spaces Available</span>
           </div>
 
           <div className="facility-cards-grid">
             {filteredFacilities.map((item) => {
-              const isActive = item.id === current.id;
+              const isSelected = item.id === current.id;
               return (
                 <button
-                  key={item.id}
                   type="button"
-                  role="tab"
-                  aria-selected={isActive}
-                  className={`facility-card-item ${isActive ? "is-active" : ""}`}
+                  key={item.id}
+                  className={`facility-card-item ${isSelected ? "is-active" : ""}`}
                   onClick={() => setActiveId(item.id)}
+                  aria-label={`View ${item.label}`}
                 >
                   <div className="card-top-row">
-                    <div className="card-icon-bubble" aria-hidden="true">
-                      {item.icon}
-                    </div>
+                    <span className="card-icon-bubble">{item.icon}</span>
                     <span className="card-num-badge">0{item.index}</span>
                   </div>
-
                   <div className="card-text-block">
                     <span className="card-category">{item.category}</span>
                     <strong className="card-title">{item.label}</strong>
                     <p className="card-tagline">{item.tagline}</p>
                   </div>
-
                   <div className="card-footer-strip">
                     <span className="card-stat-pill">{item.stat}</span>
                     <span className="card-arrow-icon" aria-hidden="true">→</span>
@@ -496,15 +472,16 @@ export default function Facilities() {
           </div>
         </div>
 
-        {/* Bottom Campus Infrastructure Trust Pillars */}
+        {/* 4 Infrastructure Trust Pillars */}
         <div className="campus-pillars-grid">
-          {CAMPUS_PILLARS.map((pillar) => (
-            <div className="campus-pillar-card" key={pillar.title}>
-              <span className="pillar-emoji" aria-hidden="true">{pillar.icon}</span>
-              <div className="pillar-content">
-                <h4 className="pillar-title">{pillar.title}</h4>
-                <p className="pillar-desc">{pillar.desc}</p>
+          {CAMPUS_PILLARS.map((pillar, idx) => (
+            <div className="campus-pillar-card" key={idx}>
+              <div className="pillar-top-row">
+                <span className="pillar-icon-bubble">{pillar.icon}</span>
+                <span className="pillar-tag">{pillar.tag}</span>
               </div>
+              <h4 className="pillar-title">{pillar.title}</h4>
+              <p className="pillar-desc">{pillar.desc}</p>
             </div>
           ))}
         </div>
